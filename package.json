@@ -1,0 +1,17 @@
+{
+	"private": true,
+	"name": "transport.rest",
+	"description": "Information about the *.transport.rest APIs.",
+	"version": "0.1.0",
+	"author": "Jannis R <mail@jannisr.de>",
+	"homepage": "https://transport.rest/",
+	"repository": "derhuerst/transport.rest",
+	"bugs": "https://github.com/derhuerst/transport.rest/issues",
+	"license": "ISC",
+	"devDependencies": {
+		"marky-markdown": "^12.0.0"
+	},
+	"scripts": {
+		"build": "marky-markdown readme.md >index.html"
+	}
+}
