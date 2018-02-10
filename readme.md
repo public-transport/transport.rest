@@ -1,7 +1,13 @@
 # `transport.rest` APIs
 
-- `vbb.transport.rest`, `2.vbb.transport.rest` – [docs](https://github.com/derhuerst/vbb-rest/blob/master/docs/index.md)
-- `1.db.transport.rest` – [docs](https://github.com/derhuerst/db-rest/blob/master/docs/index.md)
+## [VBB](https://en.wikipedia.org/wiki/Verkehrsverbund_Berlin-Brandenburg) (Berlin & Brandenburg)
+
+- [`2.vbb.transport.rest`](https://github.com/derhuerst/vbb-rest/blob/2/docs/index.md)
+- [`vbb.transport.rest`](https://github.com/derhuerst/vbb-rest/blob/old-api/docs/index.md) (should not be used for new projects)
+
+## [Deutsche Bahn](https://en.wikipedia.org/wiki/Deutsche_Bahn) (Germany)
+
+- [`1.db.transport.rest`](https://github.com/derhuerst/db-rest/blob/master/docs/index.md)
 
 ## Want to run another one?
 
