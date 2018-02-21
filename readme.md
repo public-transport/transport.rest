@@ -9,6 +9,10 @@
 
 - [`1.db.transport.rest`](https://github.com/derhuerst/db-rest/blob/master/docs/index.md)
 
+## [Flixbus](https://en.wikipedia.org/wiki/Flixbus) (Germany/Europe)
+
+- [`1.flixbus.transport.rest`](https://github.com/juliuste/meinfernbus-rest/blob/v1/readme.md)
+
 ## Want to run another one?
 
 I'm happy to let `*.transport.rest` point to an HTTP REST API, as long as
