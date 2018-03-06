@@ -1,9 +1,13 @@
 # `transport.rest` APIs
 
+This domain is supposed to be an umbrella for publicly usable, developer-friendly HTTP [REST APIs](https://en.wikipedia.org/wiki/Representational_state_transfer).
+
+[![support me on Patreon](https://img.shields.io/badge/support%20me-on%20patreon-fa7664.svg)](https://patreon.com/derhuerst)
+
 ## [VBB](https://en.wikipedia.org/wiki/Verkehrsverbund_Berlin-Brandenburg) (Berlin & Brandenburg)
 
 - [`2.vbb.transport.rest`](https://github.com/derhuerst/vbb-rest/blob/2/docs/index.md)
-- [`vbb.transport.rest`](https://github.com/derhuerst/vbb-rest/blob/old-api/docs/index.md) (should not be used for new projects)
+- [`vbb.transport.rest`](https://github.com/derhuerst/vbb-rest/blob/old-api/docs/index.md) (deprecated)
 
 ## [Deutsche Bahn](https://en.wikipedia.org/wiki/Deutsche_Bahn) (Germany)
 
@@ -17,8 +21,8 @@
 
 I'm happy to let `*.transport.rest` point to an HTTP REST API, as long as
 
-- the API is for [public transport](https://en.wikipedia.org/wiki/Public_transport)
-- the API is publicly accessble
+- the API will provide [public transport](https://en.wikipedia.org/wiki/Public_transport) data
+- the API will be publicly accessble
 - the API source code is open
 
 Just [create an issue](https://github.com/derhuerst/transport.rest/issues/new) to let me know about your plans!
