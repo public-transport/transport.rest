@@ -2,6 +2,8 @@
 
 This domain is supposed to be an umbrella for publicly usable, developer-friendly HTTP [REST APIs](https://en.wikipedia.org/wiki/Representational_state_transfer).
 
+Check [the status page](https://status.transport.rest). Subscribe to [the RSS feed](feed.xml) to get notified about downtimes and new features.
+
 [![support me on Patreon](https://img.shields.io/badge/support%20me-on%20patreon-fa7664.svg)](https://patreon.com/derhuerst)
 
 ## [VBB](https://en.wikipedia.org/wiki/Verkehrsverbund_Berlin-Brandenburg) (Berlin & Brandenburg)
