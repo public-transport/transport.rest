@@ -9,7 +9,6 @@ Check [the status page](https://status.transport.rest). Subscribe to [the RSS fe
 ## [VBB](https://en.wikipedia.org/wiki/Verkehrsverbund_Berlin-Brandenburg) (Berlin & Brandenburg)
 
 - [`2.vbb.transport.rest`](https://github.com/derhuerst/vbb-rest/blob/2/docs/index.md)
-- [`vbb.transport.rest`](https://github.com/derhuerst/vbb-rest/blob/old-api/docs/index.md) (deprecated)
 
 ## [Deutsche Bahn](https://en.wikipedia.org/wiki/Deutsche_Bahn) (Germany)
 

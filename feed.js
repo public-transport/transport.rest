@@ -1,10 +1,17 @@
 'use strict'
 
 module.exports = [{
+	id: '3',
+	title: 'old vbb.transport.rest now shut off',
+	url: '#',
+	date: '2018-06-04T19:20:00+0200',
+	body: `\
+I've just shut off \`vbb.transport.rest\` as previously announced. Please use the successor, [\`2.vbb.transport.rest\`](https://github.com/derhuerst/vbb-rest/blob/2/docs/index.md).`
+}, {
 	id: '2',
 	title: 'VBB API now exposes transfer positions',
 	url: 'https://github.com/derhuerst/vbb-hafas/blob/7c4d32b011d5c8cdf61ec33dc0bed56e96212af6/README.md#transfer-information-for-journeys',
-	date: '2018-06-27T16:30:00+0200',
+	date: '2018-04-27T16:30:00+0200',
 	body: `\
 The [\`2.vbb.transport.rest\` API](https://github.com/derhuerst/vbb-rest/blob/2/docs/index.md) will now expose transfer information for each leg of a journey, whenever the underlying [crowd-sourced database of transfer positions](https://github.com/juliuste/vbb-change-positions) contains it.
 
