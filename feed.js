@@ -1,6 +1,13 @@
 'use strict'
 
 module.exports = [{
+	id: '6',
+	title: 'new DB API: 2.db.transport.rest',
+	url: 'https://github.com/derhuerst/bvg-rest/blob/master/readme.md',
+	date: '2018-10-25T22:00:00+0200',
+	body: `\
+I have set up a new API: \`2.db.transport.rest\`, just like \`1.db.transport.rest\`, provides data for [*Deutsche Bahn*](https://en.wikipedia.org/wiki/Deutsche_Bahn), but in the output format of [\`hafas-client@3\`](https://github.com/public-transport/hafas-client/blob/3.4.3/docs/readme.md), compatible with the [*Friendly Public Transport Format* \`1.2.0\`](https://github.com/public-transport/friendly-public-transport-format/blob/1.2.0/spec/readme.md). Check the docs at [\`derhuerst/db-rest\`](https://github.com/derhuerst/db-rest/blob/2/docs/index.md).`
+}, {
 	id: '5',
 	title: 'new BVG API (Berlin)',
 	url: 'https://github.com/derhuerst/bvg-rest/blob/master/readme.md',

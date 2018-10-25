@@ -1,6 +1,6 @@
 # `transport.rest` APIs
 
-This domain is supposed to be an umbrella for publicly usable, developer-friendly HTTP [REST APIs](https://en.wikipedia.org/wiki/Representational_state_transfer).
+This domain is supposed to be an umbrella for publicly available, developer-friendly HTTP [REST APIs](https://en.wikipedia.org/wiki/Representational_state_transfer).
 
 Check [the status page](https://status.transport.rest). Subscribe to [the RSS feed](feed.xml) to get notified about downtimes and new features.
 
@@ -16,7 +16,8 @@ Check [the status page](https://status.transport.rest). Subscribe to [the RSS fe
 
 ## [Deutsche Bahn](https://en.wikipedia.org/wiki/Deutsche_Bahn) (Germany)
 
-- [`1.db.transport.rest`](https://github.com/derhuerst/db-rest/blob/master/docs/index.md)
+- [`2.db.transport.rest`](https://github.com/derhuerst/db-rest/blob/2/docs/index.md)
+- [`1.db.transport.rest`](https://github.com/derhuerst/db-rest/blob/1/docs/index.md) (deprecated)
 
 ## [Flixbus](https://en.wikipedia.org/wiki/Flixbus) (Germany/Europe)
 
