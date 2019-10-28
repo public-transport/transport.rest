@@ -1,6 +1,15 @@
 'use strict'
 
 module.exports = [{
+	id: '8',
+	title: 'new VBB API: 3.vbb.transport.rest',
+	url: 'https://github.com/derhuerst/vbb-rest/3/master/readme.md',
+	date: '2019-03-22T11:10:00+0100',
+	body: `\
+I have set up a new API: \`3.vbb.transport.rest\`, just like \`2.vbb.transport.rest\`, provides data for [Berlin & Brandenburg public transport (VBB)](https://en.wikipedia.org/wiki/Verkehrsverbund_Berlin-Brandenburg), but in the output format of [\`hafas-client@4\`](https://github.com/public-transport/hafas-client/blob/4/docs/readme.md). Check the docs at [\`derhuerst/vbb-rest\`](https://github.com/derhuerst/vbb-rest/blob/3/docs/index.md).
+
+As the underlying HAFAS endpoints beneath \`3.vbb.transport.rest\` and [\`2.bvg.transport.rest\`](https://2.bvg.transport.rest) *both* cover almost all of Berlin & Brandenburg, they are pretty much equivalent.`
+}, {
 	id: '7',
 	title: 'new BVG API: 2.bvg.transport.rest',
 	url: 'https://github.com/derhuerst/bvg-rest/2/master/readme.md',
