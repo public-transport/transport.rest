@@ -1,6 +1,15 @@
 'use strict'
 
 module.exports = [{
+	id: '7',
+	title: 'new BVG API: 2.bvg.transport.rest',
+	url: 'https://github.com/derhuerst/bvg-rest/2/master/readme.md',
+	date: '2019-03-22T11:08:00+0100',
+	body: `\
+I have set up a new API: \`2.bvg.transport.rest\`, just like \`1.bvg.transport.rest\`, provides data for [Berlin public transport (BVG)](https://en.wikipedia.org/wiki/Berliner_Verkehrsbetriebe), but in the output format of [\`hafas-client@4\`](https://github.com/public-transport/hafas-client/blob/4/docs/readme.md). The underlying HAFAS endpoint also has data for non-BVG vehicles, it essentially covers all of Berlin & Brandenburg.
+
+Check the docs at [\`derhuerst/bvg-rest\`](https://github.com/derhuerst/bvg-rest/blob/2/docs/index.md).`
+}, {
 	id: '6',
 	title: 'new DB API: 2.db.transport.rest',
 	url: 'https://github.com/derhuerst/db-rest/2/master/readme.md',
