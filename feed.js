@@ -1,6 +1,15 @@
 'use strict'
 
 module.exports = [{
+	id: '9',
+	title: '2.vbb.transport.rest is now deprecated',
+	url: '#',
+	date: '2019-10-28T16:57:00+0100',
+	body: `\
+[\`2.vbb.transport.rest\`](https://2.vbb.transport.rest/) is now deprecated; It will be shut off later this year.
+
+Please use the successor, [\`3.vbb.transport.rest\`](https://3.vbb.transport.rest/). It returns data in the format of [\`hafas-client@4\`](https://github.com/public-transport/hafas-client/blob/4/docs/readme.md), so you will have to make minor adjustments.`
+}, {
 	id: '8',
 	title: 'new VBB API: 3.vbb.transport.rest',
 	url: 'https://github.com/derhuerst/vbb-rest/3/master/readme.md',
