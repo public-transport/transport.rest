@@ -1,6 +1,15 @@
 'use strict'
 
 module.exports = [{
+	id: '10',
+	title: '1.bvg.transport.rest is now deprecated',
+	url: '#',
+	date: '2019-10-28T16:59:00+0100',
+	body: `\
+[\`1.bvg.transport.rest\`](https://1.bvg.transport.rest/) is now deprecated; It will be shut off later this year.
+
+Please use the successor, [\`2.bvg.transport.rest\`](https://2.bvg.transport.rest/). It returns data in the format of [\`hafas-client@4\`](https://github.com/public-transport/hafas-client/blob/4/docs/readme.md), so you will have to make minor adjustments.`
+}, {
 	id: '9',
 	title: '2.vbb.transport.rest is now deprecated',
 	url: '#',
