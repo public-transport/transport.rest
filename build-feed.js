@@ -1,10 +1,15 @@
 'use strict'
 
+const MarkdownRender = require('markdown-it')
 const RssFeed = require('rss')
-const md = require('marky-markdown')
 
 const pkg = require('./package.json')
 const feedItems = require('./feed')
+
+const md = (md) => {
+	const renderer = new MarkdownRender()
+	return renderer.render(md)
+}
 
 const feed = new RssFeed({
 	title: pkg.name + ' news',
