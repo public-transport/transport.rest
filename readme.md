@@ -13,7 +13,6 @@ Check [the status page](https://status.transport.rest). Subscribe to [the RSS fe
 ## [BVG](https://en.wikipedia.org/wiki/Berliner_Verkehrsbetriebe) (Berlin & Brandenburg)
 
 - [`2.bvg.transport.rest`](https://2.bvg.transport.rest/)
-- [`1.bvg.transport.rest`](https://github.com/derhuerst/bvg-rest/blob/1/docs/index.md) (deprecated)
 
 ## [Deutsche Bahn](https://en.wikipedia.org/wiki/Deutsche_Bahn) (Germany)
 
