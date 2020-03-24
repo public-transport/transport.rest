@@ -17,7 +17,6 @@ Check [the status page](https://status.transport.rest). Subscribe to [the RSS fe
 ## [Deutsche Bahn](https://en.wikipedia.org/wiki/Deutsche_Bahn) (Germany)
 
 - [`2.db.transport.rest`](https://github.com/derhuerst/db-rest/blob/2/docs/index.md)
-- [`1.db.transport.rest`](https://github.com/derhuerst/db-rest/blob/1/docs/index.md) (deprecated)
 
 ## [Flixbus](https://en.wikipedia.org/wiki/Flixbus) (Germany/Europe)
 

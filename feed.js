@@ -1,6 +1,13 @@
 'use strict'
 
 module.exports = [{
+	id: '13',
+	title: '1.db.transport.rest now shut off',
+	url: '#',
+	date: '2020-03-24T18:20:00+01:00',
+	body: `\
+I've just shut off \`1.db.transport.rest\` as previously announced. Please use the successor, [\`2.db.transport.rest\`](https://github.com/derhuerst/db-rest/blob/2/docs/index.md).`
+}, {
 	id: '12',
 	title: '1.bvg.transport.rest now shut off',
 	url: '#',
