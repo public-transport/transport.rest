@@ -1,6 +1,13 @@
 'use strict'
 
 module.exports = [{
+	id: '11',
+	title: '2.vbb.transport.rest now shut off',
+	url: '#',
+	date: '2020-03-24T18:20:00+01:00',
+	body: `\
+I've just shut off \`2.vbb.transport.rest\` as previously announced. Please use the successor, [\`3.vbb.transport.rest\`](https://github.com/derhuerst/vbb-rest/blob/3/docs/index.md).`
+}, {
 	id: '10',
 	title: '1.bvg.transport.rest is now deprecated',
 	url: '#',
