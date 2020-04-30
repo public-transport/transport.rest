@@ -1,6 +1,21 @@
 'use strict'
 
 module.exports = [{
+	id: '14',
+	title: 'rate limits added for *.{vbb,bvg,db,hvv}.transport.rest',
+	url: '#',
+	date: '2020-04-30T14:40:00+02:00',
+	body: `\
+I have added a 60 requests/min (120 requests/min burst) [rate limit](https://apisyouwonthate.com/blog/what-is-api-rate-limiting-all-about) to the following endpoints:
+
+- \`1.hvv.transport.rest\`
+- \`2.db.transport.rest\`
+- \`2.bvg.transport.rest\`
+- \`3.vbb.transport.rest\`
+
+The rate limit works by IP address. The endpoint will respond with [\`429 Too Many Requests\`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429) as long as you are above the threshold.
+`
+}, {
 	id: '13',
 	title: '1.db.transport.rest now shut off',
 	url: '#',
