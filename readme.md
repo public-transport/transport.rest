@@ -6,6 +6,10 @@ Check [the status page](https://status.transport.rest). Subscribe to [the RSS fe
 
 [![support me on Patreon](https://img.shields.io/badge/support%20me-on%20patreon-fa7664.svg)](https://patreon.com/derhuerst)
 
+## [Deutsche Bahn](https://en.wikipedia.org/wiki/Deutsche_Bahn) (Germany)
+
+- [`2.db.transport.rest`](https://github.com/derhuerst/db-rest/blob/2/docs/index.md)
+
 ## [VBB](https://en.wikipedia.org/wiki/Verkehrsverbund_Berlin-Brandenburg) (Berlin & Brandenburg)
 
 - [`3.vbb.transport.rest`](https://3.vbb.transport.rest/)
@@ -14,9 +18,9 @@ Check [the status page](https://status.transport.rest). Subscribe to [the RSS fe
 
 - [`2.bvg.transport.rest`](https://2.bvg.transport.rest/)
 
-## [Deutsche Bahn](https://en.wikipedia.org/wiki/Deutsche_Bahn) (Germany)
+## [HVV](https://en.wikipedia.org/wiki/Hamburger_Verkehrsverbund) (Hamburg)
 
-- [`2.db.transport.rest`](https://github.com/derhuerst/db-rest/blob/2/docs/index.md)
+- [`1.hvv.transport.rest`](https://1.hvv.transport.rest/)
 
 ## [Flixbus](https://en.wikipedia.org/wiki/Flixbus) (Germany/Europe)
 
