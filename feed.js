@@ -1,6 +1,78 @@
 'use strict'
 
 module.exports = [{
+	id: '18',
+	title: 'new HVV API: v5.hvv.transport.rest',
+	url: 'https://github.com/derhuerst/hvv-rest/blob/5/docs/readme.md',
+	date: '2020-05-17T18:30:00+02:00',
+	body: `\
+**I have set up a new API: \`v5.hvv.transport.rest\`.**
+
+Just like its predecessor \`1.hvv.transport.rest\`, it provides data for [Hamburg public transport (HVV)](https://en.wikipedia.org/wiki/Hamburger_Verkehrsverbund). The API returns data in the format of [\`hafas-client@5\`](https://github.com/public-transport/hafas-client/blob/5/docs/readme.md). Check out [the API documentation](https://github.com/derhuerst/hvv-rest/blob/5/docs/readme.md).
+
+New features of this API:
+- [new features of \`hafas-client@4\` & \`hafas-client@5\`](https://github.com/public-transport/hafas-client/blob/5/docs/changelog.md) (mostly more detailed responses)
+- [new \`/radar\` route](https://github.com/derhuerst/hvv-rest/blob/5/docs/api.md#get-radar)
+- [new \`/stops/reachable-from\` route](https://github.com/derhuerst/hvv-rest/blob/5/docs/api.md#get-stopsreachable-from)
+- \`/arrivals\`/\`/departures\` & \`/journeys\`: pagination support via [\`Link\` headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Link)
+- better caching support: strong [\`ETag\`s](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag) & [\`Last-Modified\`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Last-Modified) headers
+`
+}, {
+	id: '17',
+	title: 'new BVG API: v5.bvg.transport.rest',
+	url: 'https://github.com/derhuerst/bvg-rest/blob/5/docs/readme.md',
+	date: '2020-05-17T18:30:00+02:00',
+	body: `\
+**I have set up a new API: \`v5.bvg.transport.rest\`.**
+
+Just like its predecessor \`2.bvg.transport.rest\`, it provides data for [Berlin public transport (BVG)](https://en.wikipedia.org/wiki/Berliner_Verkehrsbetriebe). The API returns data in the format of [\`hafas-client@5\`](https://github.com/public-transport/hafas-client/blob/5/docs/readme.md). Check out [the API documentation](https://github.com/derhuerst/bvg-rest/blob/5/docs/readme.md).
+
+New features of this API:
+- [new features of \`hafas-client@4\` & \`hafas-client@5\`](https://github.com/public-transport/hafas-client/blob/5/docs/changelog.md) (mostly more detailed responses)
+- [new \`/radar\` route](https://github.com/derhuerst/bvg-rest/blob/5/docs/api.md#get-radar)
+- [new \`/stops/reachable-from\` route](https://github.com/derhuerst/bvg-rest/blob/5/docs/api.md#get-stopsreachable-from)
+- \`/arrivals\`/\`/departures\` & \`/journeys\`: pagination support via [\`Link\` headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Link)
+- better caching support: strong [\`ETag\`s](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag) & [\`Last-Modified\`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Last-Modified) headers
+
+*Note:* Because [BVG's HAFAS system](https://github.com/public-transport/hafas-client/blob/e02a20b1de59bda3cd380445b6105e4c46036636/p/bvg/readme.md) beneath this API is frequently down, consider using [\`v5.vbb.transport.rest\`](https://v5.vbb.transport.rest/); Both have almost exactly the same data.
+`
+}, {
+	id: '16',
+	title: 'new VBB API: v5.vbb.transport.rest',
+	url: 'https://github.com/derhuerst/vbb-rest/blob/5/docs/readme.md',
+	date: '2020-05-17T18:30:00+02:00',
+	body: `\
+**I have set up a new API: \`v5.vbb.transport.rest\`.**
+
+Just like its predecessor \`3.vbb.transport.rest\`, it provides data for [Berlin & Brandenburg public transport (VBB)](https://en.wikipedia.org/wiki/Verkehrsverbund_Berlin-Brandenburg). The API returns data in the format of [\`hafas-client@5\`](https://github.com/public-transport/hafas-client/blob/5/docs/readme.md). Check out [the API documentation](https://github.com/derhuerst/vbb-rest/blob/5/docs/readme.md).
+
+New features of this API:
+- [new features of \`hafas-client@4\` & \`hafas-client@5\`](https://github.com/public-transport/hafas-client/blob/5/docs/changelog.md) (mostly more detailed responses)
+- [new \`/radar\` route](https://github.com/derhuerst/vbb-rest/blob/5/docs/api.md#get-radar)
+- [new \`/stops/reachable-from\` route](https://github.com/derhuerst/vbb-rest/blob/5/docs/api.md#get-stopsreachable-from)
+- \`/arrivals\`/\`/departures\` & \`/journeys\`: pagination support via [\`Link\` headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Link)
+- better caching support: strong [\`ETag\`s](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag) & [\`Last-Modified\`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Last-Modified) headers
+- more consistent & intuitive routes for stops/stations & lines search/info
+`
+}, {
+	id: '15',
+	title: 'new DB API: v5.db.transport.rest',
+	url: 'https://github.com/derhuerst/db-rest/blob/5/docs/readme.md',
+	date: '2020-05-17T18:30:00+02:00',
+	body: `\
+**I have set up a new API: \`v5.db.transport.rest\`.**
+
+Just like its predecessor \`2.db.transport.rest\`, it provides data for [*Deutsche Bahn*](https://en.wikipedia.org/wiki/Deutsche_Bahn). The API returns data in the format of [\`hafas-client@5\`](https://github.com/public-transport/hafas-client/blob/5/docs/readme.md). Check out [the API documentation](https://github.com/derhuerst/db-rest/blob/5/docs/readme.md).
+
+New features of this API:
+- [new features of \`hafas-client@4\` & \`hafas-client@5\`](https://github.com/public-transport/hafas-client/blob/5/docs/changelog.md) (mostly more detailed responses)
+- [new \`/radar\` route](https://github.com/derhuerst/db-rest/blob/5/docs/api.md#get-radar)
+- [new \`/stops/reachable-from\` route](https://github.com/derhuerst/db-rest/blob/5/docs/api.md#get-stopsreachable-from)
+- \`/arrivals\`/\`/departures\` & \`/journeys\`: pagination support via [\`Link\` headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Link)
+- better caching support: strong [\`ETag\`s](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag) & [\`Last-Modified\`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Last-Modified) headers
+- more consistent & intuitive routes for stops/stations search/info
+`
+}, {
 	id: '14',
 	title: 'rate limits added for *.{vbb,bvg,db,hvv}.transport.rest',
 	url: '#',
