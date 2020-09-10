@@ -14,7 +14,7 @@ Check [the status page](https://status.transport.rest). Subscribe to [the RSS fe
 ## [VBB](https://en.wikipedia.org/wiki/Verkehrsverbund_Berlin-Brandenburg) (Berlin & Brandenburg)
 
 - [`v5.vbb.transport.rest`](https://v5.vbb.transport.rest/)
-- [`3.vbb.transport.rest`](https://3.vbb.transport.rest/)
+- [`3.vbb.transport.rest`](https://3.vbb.transport.rest/) (deprecated)
 
 ## [BVG](https://en.wikipedia.org/wiki/Berliner_Verkehrsbetriebe) (Berlin & Brandenburg)
 
