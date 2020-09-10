@@ -19,7 +19,7 @@ Check [the status page](https://status.transport.rest). Subscribe to [the RSS fe
 ## [BVG](https://en.wikipedia.org/wiki/Berliner_Verkehrsbetriebe) (Berlin & Brandenburg)
 
 - [`v5.bvg.transport.rest`](https://v5.bvg.transport.rest/)
-- [`2.bvg.transport.rest`](https://2.bvg.transport.rest/)
+- [`2.bvg.transport.rest`](https://2.bvg.transport.rest/) (deprecated)
 
 ## [HVV](https://en.wikipedia.org/wiki/Hamburger_Verkehrsverbund) (Hamburg)
 
