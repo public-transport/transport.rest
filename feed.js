@@ -1,6 +1,15 @@
 'use strict'
 
 module.exports = [{
+	id: '19',
+	title: '2.db.transport.rest is now deprecated',
+	url: '#',
+	date: '2020-09-10T14:20:00+02:00',
+	body: `\
+[\`2.db.transport.rest\`](https://2.db.transport.rest/) is now deprecated; It will be shut off roughly in a month.
+
+Please use the successor, [\`v5.db.transport.rest\`](https://v5.db.transport.rest/). It returns data in the format of [\`hafas-client@5\`](https://github.com/public-transport/hafas-client/blob/5/docs/readme.md), so you will have to make minor adjustments. Check out [the API documentation](https://github.com/derhuerst/db-rest/blob/5/docs/readme.md).`
+}, {
 	id: '18',
 	title: 'new HVV API: v5.hvv.transport.rest',
 	url: 'https://github.com/derhuerst/hvv-rest/blob/5/docs/readme.md',
