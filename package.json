@@ -9,12 +9,10 @@
 	"bugs": "https://github.com/derhuerst/transport.rest/issues",
 	"license": "ISC",
 	"devDependencies": {
-		"markdown-it": "^10.0.0",
 		"rss": "^1.2.2"
 	},
 	"scripts": {
-		"build-readme": "markdown-it readme.md >index.html",
 		"build-feed": "node build-feed.js >feed.xml",
-		"build": "npm run build-readme && npm run build-feed"
+		"build": "npm run build-feed"
 	}
 }

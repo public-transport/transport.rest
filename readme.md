@@ -32,10 +32,4 @@ Check [the status page](https://status.transport.rest). Subscribe to [the RSS fe
 
 ## Want to run another one?
 
-I'm happy to let `*.transport.rest` point to an HTTP REST API, as long as
-
-- the API will provide [public transport](https://en.wikipedia.org/wiki/Public_transport) data
-- the API will be publicly accessble
-- the API source code is open
-
-Just [create an issue](https://github.com/derhuerst/transport.rest/issues/new) to let me know about your plans!
+I'm happy to let `*.transport.rest` point to your API, as long as it provides [public transport](https://en.wikipedia.org/wiki/Public_transport) data and is publicly accessible. Just [create an issue](https://github.com/derhuerst/transport.rest/issues/new) to let me know about your plans!
