@@ -1,0 +1,271 @@
+v5.vbb.transport.rest {
+	gzip
+	proxy / {
+		upstream http://localhost:3009
+
+		policy round_robin
+		fail_timeout 1m
+		max_fails 2
+		health_check /health
+		health_check_interval 5m
+		health_check_timeout 10s
+		transparent
+		websocket
+	}
+	ratelimit GET,HEAD / 100 150 minute
+	log /var/log/caddy/v5.vbb.transport.rest.log {
+		rotate_age 365
+		rotate_keep 100
+		ipmask 255.255.0.0 ffff:ffff:ffff:ff00::
+	}
+}
+a.v5.vbb.transport.rest {
+	proxy / http://localhost:3009 {
+		transparent
+		websocket
+	}
+	ratelimit GET,HEAD / 100 150 minute
+	log /var/log/caddy/v5.vbb.transport.rest.log {
+		rotate_age 365
+		rotate_keep 100
+		ipmask 255.255.0.0 ffff:ffff:ffff:ff00::
+	}
+}
+
+v5.db.transport.rest {
+	gzip
+	proxy / {
+		upstream http://localhost:3008
+
+		policy round_robin
+		fail_timeout 1m
+		max_fails 2
+		health_check /health
+		health_check_interval 5m
+		health_check_timeout 10s
+		transparent
+		websocket
+	}
+	ratelimit GET,HEAD / 100 150 minute
+	log /var/log/caddy/v5.db.transport.rest.log {
+		rotate_age 365
+		rotate_keep 100
+		ipmask 255.255.0.0 ffff:ffff:ffff:ff00::
+	}
+}
+a.v5.db.transport.rest {
+	proxy / http://localhost:3008 {
+		transparent
+		websocket
+	}
+	ratelimit GET,HEAD / 100 150 minute
+	log /var/log/caddy/v5.db.transport.rest.log {
+		rotate_age 365
+		rotate_keep 100
+		ipmask 255.255.0.0 ffff:ffff:ffff:ff00::
+	}
+}
+
+v5.bvg.transport.rest {
+	gzip
+	proxy / {
+		upstream http://localhost:3007
+
+		policy round_robin
+		fail_timeout 1m
+		max_fails 2
+		health_check /health
+		health_check_interval 5m
+		health_check_timeout 10s
+		transparent
+		websocket
+	}
+	ratelimit GET,HEAD / 100 150 minute
+	log /var/log/caddy/v5.bvg.transport.rest.log {
+		rotate_age 365
+		rotate_keep 100
+		ipmask 255.255.0.0 ffff:ffff:ffff:ff00::
+	}
+}
+a.v5.bvg.transport.rest {
+	proxy / http://localhost:3007 {
+		transparent
+		websocket
+	}
+	ratelimit GET,HEAD / 100 150 minute
+	log /var/log/caddy/v5.bvg.transport.rest.log {
+		rotate_age 365
+		rotate_keep 100
+		ipmask 255.255.0.0 ffff:ffff:ffff:ff00::
+	}
+}
+
+v5.hvv.transport.rest {
+	gzip
+	proxy / {
+		upstream http://localhost:3006
+
+		policy round_robin
+		fail_timeout 1m
+		max_fails 2
+		health_check /health
+		health_check_interval 5m
+		health_check_timeout 10s
+		transparent
+		websocket
+	}
+	ratelimit GET,HEAD / 100 150 minute
+	log /var/log/caddy/v5.hvv.transport.rest.log {
+		rotate_age 365
+		rotate_keep 100
+		ipmask 255.255.0.0 ffff:ffff:ffff:ff00::
+	}
+}
+a.v5.hvv.transport.rest {
+	proxy / http://localhost:3006 {
+		transparent
+		websocket
+	}
+	ratelimit GET,HEAD / 100 150 minute
+	log /var/log/caddy/v5.hvv.transport.rest.log {
+		rotate_age 365
+		rotate_keep 100
+		ipmask 255.255.0.0 ffff:ffff:ffff:ff00::
+	}
+}
+
+3.vbb.transport.rest {
+	gzip
+	proxy / {
+		upstream http://localhost:3000
+
+		policy round_robin
+		fail_timeout 5m
+		max_fails 2
+		health_check /health
+		health_check_interval 5m
+		health_check_timeout 10s
+		transparent
+		websocket
+	}
+	ratelimit GET,HEAD / 60 120 minute
+	log /var/log/caddy/3.vbb.transport.rest.log {
+		rotate_age 365
+		rotate_keep 100
+		ipmask 255.255.0.0 ffff:ffff:ffff:ff00::
+	}
+}
+a.3.vbb.transport.rest {
+	proxy / http://localhost:3000 {
+		transparent
+		websocket
+	}
+	ratelimit GET,HEAD / 60 120 minute
+	log /var/log/caddy/3.vbb.transport.rest.log {
+		rotate_age 365
+		rotate_keep 100
+		ipmask 255.255.0.0 ffff:ffff:ffff:ff00::
+	}
+}
+
+2.bvg.transport.rest {
+	gzip
+	proxy / {
+		upstream http://localhost:3001
+		
+		policy round_robin
+		fail_timeout 5m
+		max_fails 2
+		health_check /health
+		health_check_interval 5m
+		health_check_timeout 10s
+		transparent
+		websocket
+	}
+	ratelimit GET,HEAD / 60 120 minute
+	log /var/log/caddy/2.bvg.transport.rest.log {
+		rotate_age 365
+		rotate_keep 100
+		ipmask 255.255.0.0 ffff:ffff:ffff:ff00::
+	}
+}
+a.2.bvg.transport.rest {
+	proxy / http://localhost:3001 {
+		transparent
+		websocket
+	}
+	ratelimit GET,HEAD / 60 120 minute
+	log /var/log/caddy/2.bvg.transport.rest.log {
+		rotate_age 365
+		rotate_keep 100
+		ipmask 255.255.0.0 ffff:ffff:ffff:ff00::
+	}
+}
+
+2.db.transport.rest {
+	gzip
+	proxy / {
+		upstream http://localhost:3004
+
+		policy round_robin
+		fail_timeout 5m
+		max_fails 2
+		health_check /health
+		health_check_interval 5m
+		health_check_timeout 10s
+		transparent
+		websocket
+	}
+	ratelimit GET,HEAD / 60 120 minute
+	log /var/log/caddy/2.db.transport.rest.log {
+		rotate_age 365
+		rotate_keep 100
+		ipmask 255.255.0.0 ffff:ffff:ffff:ff00::
+	}
+}
+a.2.db.transport.rest {
+	proxy / http://localhost:3004 {
+		transparent
+		websocket
+	}
+	ratelimit GET,HEAD / 60 120 minute
+	log /var/log/caddy/2.db.transport.rest.log {
+		rotate_age 365
+		rotate_keep 100
+		ipmask 255.255.0.0 ffff:ffff:ffff:ff00::
+	}
+}
+
+1.hvv.transport.rest {
+	gzip
+	proxy / {
+		upstream http://localhost:3005
+
+		policy round_robin
+		fail_timeout 5m
+		max_fails 2
+		health_check /health
+		health_check_interval 5m
+		health_check_timeout 10s
+		transparent
+		websocket
+	}
+	ratelimit GET,HEAD / 60 120 minute
+	log /var/log/caddy/1.hvv.transport.rest.log {
+		rotate_age 365
+		rotate_keep 100
+		ipmask 255.255.0.0 ffff:ffff:ffff:ff00::
+	}
+}
+a.1.hvv.transport.rest {
+	proxy / http://localhost:3005 {
+		transparent
+		websocket
+	}
+	ratelimit GET,HEAD / 60 120 minute
+	log /var/log/caddy/1.hvv.transport.rest.log {
+		rotate_age 365
+		rotate_keep 100
+		ipmask 255.255.0.0 ffff:ffff:ffff:ff00::
+	}
+}

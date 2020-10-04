@@ -1,0 +1,10 @@
+[DEFAULT]
+backend = systemd
+ignoreip = elm.jannisr.de-ipv4-here elm.jannisr.de-ipv6-here
+
+[sshd]
+enabled = true
+maxretry = 5
+findtime = 1d
+bantime = 3d
+banaction = ufw
