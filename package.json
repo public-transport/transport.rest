@@ -9,7 +9,11 @@
 	"bugs": "https://github.com/derhuerst/transport.rest/issues",
 	"license": "ISC",
 	"devDependencies": {
-		"rss": "^1.2.2"
+		"rehype-stringify": "^8.0.0",
+		"remark-parse": "^8.0.3",
+		"remark-rehype": "^8.0.0",
+		"rss": "^1.2.2",
+		"unified": "^9.2.0"
 	},
 	"scripts": {
 		"build-feed": "node build-feed.js >feed.xml",
