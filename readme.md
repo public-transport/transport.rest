@@ -1,30 +1,28 @@
-# `transport.rest` APIs
+# transport.rest transit APIs 🚂
 
-This domain is supposed to be an umbrella for publicly available, developer-friendly HTTP [REST APIs](https://en.wikipedia.org/wiki/Representational_state_transfer).
+## publicly available, developer-friendly, run by friendly people on the internet 👋
 
-Check [the status page](https://status.transport.rest). Subscribe to [the RSS feed](feed.xml) to get notified about downtimes and new features.
-
-[![support me on Patreon](https://img.shields.io/badge/support%20me-on%20patreon-fa7664.svg)](https://patreon.com/derhuerst)
+Check [the status page](https://status.transport.rest). Subscribe to [the RSS feed](https://transport.rest/feed.xml) to get notified about planned maintenance and new features. Please also consider [supporting me on Patreon](https://patreon.com/derhuerst).
 
 ## [Deutsche Bahn](https://en.wikipedia.org/wiki/Deutsche_Bahn) (Germany)
 
 - [`v5.db.transport.rest`](https://v5.db.transport.rest/)
-- [`2.db.transport.rest`](https://github.com/derhuerst/db-rest/blob/2/docs/index.md) (deprecated)
+- ~~[`2.db.transport.rest`](https://github.com/derhuerst/db-rest/blob/2/docs/index.md)~~ (deprecated)
 
 ## [VBB](https://en.wikipedia.org/wiki/Verkehrsverbund_Berlin-Brandenburg) (Berlin & Brandenburg)
 
 - [`v5.vbb.transport.rest`](https://v5.vbb.transport.rest/)
-- [`3.vbb.transport.rest`](https://3.vbb.transport.rest/) (deprecated)
+- ~~[`3.vbb.transport.rest`](https://3.vbb.transport.rest/)~~ (deprecated)
 
 ## [BVG](https://en.wikipedia.org/wiki/Berliner_Verkehrsbetriebe) (Berlin & Brandenburg)
 
 - [`v5.bvg.transport.rest`](https://v5.bvg.transport.rest/)
-- [`2.bvg.transport.rest`](https://2.bvg.transport.rest/) (deprecated)
+- ~~[`2.bvg.transport.rest`](https://2.bvg.transport.rest/)~~ (deprecated)
 
 ## [HVV](https://en.wikipedia.org/wiki/Hamburger_Verkehrsverbund) (Hamburg)
 
 - [`v5.hvv.transport.rest`](https://v5.hvv.transport.rest/)
-- [`1.hvv.transport.rest`](https://1.hvv.transport.rest/) (deprecated)
+- ~~[`1.hvv.transport.rest`](https://1.hvv.transport.rest/)~~ (deprecated)
 
 ## [Flixbus](https://en.wikipedia.org/wiki/Flixbus) (Germany/Europe)
 
