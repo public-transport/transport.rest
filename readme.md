@@ -19,7 +19,6 @@ Check [the status page](https://status.transport.rest). Subscribe to [the RSS fe
 ## [HVV](https://en.wikipedia.org/wiki/Hamburger_Verkehrsverbund) (Hamburg)
 
 - [`v5.hvv.transport.rest`](https://v5.hvv.transport.rest/)
-- ~~[`1.hvv.transport.rest`](https://1.hvv.transport.rest/)~~ (deprecated)
 
 ## [Flixbus](https://en.wikipedia.org/wiki/Flixbus) (Germany/Europe)
 
