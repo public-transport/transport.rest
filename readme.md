@@ -11,6 +11,7 @@ Check [the status page](https://status.transport.rest). Subscribe to [the RSS fe
 ## [VBB](https://en.wikipedia.org/wiki/Verkehrsverbund_Berlin-Brandenburg) (Berlin & Brandenburg)
 
 - [`v5.vbb.transport.rest`](https://v5.vbb.transport.rest/)
+- [`v0.berlin-gtfs-rt.transport.rest`](https://v0.berlin-gtfs-rt.transport.rest/) – experimental GTFS-RT feed
 
 ## [BVG](https://en.wikipedia.org/wiki/Berliner_Verkehrsbetriebe) (Berlin & Brandenburg)
 
@@ -19,6 +20,7 @@ Check [the status page](https://status.transport.rest). Subscribe to [the RSS fe
 ## [HVV](https://en.wikipedia.org/wiki/Hamburger_Verkehrsverbund) (Hamburg)
 
 - [`v5.hvv.transport.rest`](https://v5.hvv.transport.rest/)
+- [`v0.hamburg-gtfs-rt.transport.rest`](https://v0.hamburg-gtfs-rt.transport.rest/) – experimental GTFS-RT feed
 
 ## [Flixbus](https://en.wikipedia.org/wiki/Flixbus) (Germany/Europe)
 
