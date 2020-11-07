@@ -115,6 +115,27 @@ npm run build
 systemctl enable v0.berlin-gtfs-rt.transport.rest
 systemctl start v0.berlin-gtfs-rt.transport.rest
 
+# v0.hamburg-gtfs-rt.transport.rest
+export PGUSER=postgres
+export PGPASSWORD=password
+PGDATABASE=postgres psql -c 'create database hamburg'
+export PGDATABASE=hamburg
+
+git clone https://github.com/derhuerst/hvv-rest.git /var/www/v0.hamburg-gtfs-rt.transport.rest
+cd /var/www/v0.hamburg-gtfs-rt.transport.rest
+npm i
+apt install unzip -y
+npm run build
+
+# put /etc/systemd/system/v0.hamburg-gtfs-rt.transport.rest.service
+# put /etc/systemd/system/v0.hamburg-gtfs-rt.transport.rest-monitor.service
+# put /etc/systemd/system/v0.hamburg-gtfs-rt.transport.rest-match.socket
+# put /etc/systemd/system/v0.hamburg-gtfs-rt.transport.rest-match.service
+# put /etc/systemd/system/v0.hamburg-gtfs-rt.transport.rest-serve.socket
+# put /etc/systemd/system/v0.hamburg-gtfs-rt.transport.rest-serve.service
+systemctl enable v0.hamburg-gtfs-rt.transport.rest
+systemctl start v0.hamburg-gtfs-rt.transport.rest
+
 # print status of all APIs
 systemctl list-units | grep transport.rest
 

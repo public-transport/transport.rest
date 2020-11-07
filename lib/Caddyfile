@@ -280,3 +280,14 @@ v0.berlin-gtfs-rt.transport.rest {
 	root * /var/www/v0.berlin-gtfs-rt.transport.rest/docs
 	file_server
 }
+
+v0.hamburg-gtfs-rt.transport.rest {
+	route /feed {
+		uri strip_prefix /feed
+		reverse_proxy {
+			to localhost:3001
+		}
+	}
+	root * /var/www/v0.hamburg-gtfs-rt.transport.rest/docs
+	file_server
+}

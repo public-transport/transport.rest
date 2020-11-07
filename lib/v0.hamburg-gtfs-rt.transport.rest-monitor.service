@@ -1,0 +1,21 @@
+[Unit]
+Description=monitor HVV endpoint
+Requires=v0.hamburg-gtfs-rt.transport.rest-match.socket
+After=redis.service v0.hamburg-gtfs-rt.transport.rest-match.socket
+Wants=v0.hamburg-gtfs-rt.transport.rest-match.service v0.hamburg-gtfs-rt.transport.rest-serve.service
+
+[Service]
+WorkingDirectory=/var/www/v0.hamburg-gtfs-rt.transport.rest
+ExecStart=/usr/bin/node monitor.js
+Environment=NODE_ENV=production
+Environment=BBOX="{\"north\": 53.6744, \"west\": 9.7559, \"south\": 53.3660, \"east\": 10.2909}"
+Environment=LOCAL_ADDRESS=2a01:4f8:c2c:82fa::7,2a01:4f8:c2c:82fa::8,2a01:4f8:c2c:82fa::9,2a01:4f8:c2c:82fa::a,2a01:4f8:c2c:82fa::b,2a01:4f8:c2c:82fa::c
+
+Sockets=v0.hamburg-gtfs-rt.transport.rest-match.socket
+StandardInput=null
+StandardOutput=fd:v0.hamburg-gtfs-rt.transport.rest-match.socket
+StandardError=journal
+
+Restart=always
+RestartSec=1s
+TimeoutStartSec=infinity

@@ -1,0 +1,7 @@
+[Unit]
+Description=input for serve.js
+
+[Socket]
+ListenFIFO=/run/hamburg-gtfs-rt-server/1-serve
+SocketMode=0600
+RemoveOnStop=false
