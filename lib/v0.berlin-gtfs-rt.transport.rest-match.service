@@ -1,0 +1,22 @@
+[Unit]
+Description=match VBB data
+Requires=v0.berlin-gtfs-rt.transport.rest-match.socket v0.berlin-gtfs-rt.transport.rest-serve.socket
+After=postgresql.service redis.service v0.berlin-gtfs-rt.transport.rest-match.socket v0.berlin-gtfs-rt.transport.rest-serve.socket
+
+[Service]
+WorkingDirectory=/var/www/v0.berlin-gtfs-rt.transport.rest
+ExecStart=/usr/bin/node match.js
+Environment=NODE_ENV=production
+Environment=PGUSER=postgres
+Environment=PGPASSWORD=password
+Environment=PGDATABASE=berlin
+Environment=REDIS_URL=redis://localhost:6379/1
+
+Sockets=v0.berlin-gtfs-rt.transport.rest-match.socket v0.berlin-gtfs-rt.transport.rest-serve.socket
+StandardInput=fd:v0.berlin-gtfs-rt.transport.rest-match.socket
+StandardOutput=fd:v0.berlin-gtfs-rt.transport.rest-serve.socket
+StandardError=journal
+
+Restart=always
+RestartSec=1s
+TimeoutStartSec=infinity

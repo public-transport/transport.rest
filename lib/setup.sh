@@ -87,6 +87,34 @@ add-to-systemd a.v5.hvv.transport.rest -e NODE_ENV=production -e HOSTNAME=a.v5.h
 systemctl enable a.v5.hvv.transport.rest
 systemctl start a.v5.hvv.transport.rest
 
+# set up PostgreSQL
+apt install postgresql-12-postgis-3 -y
+nano /etc/postgresql/12/main/pg_hba.conf
+pg_ctlcluster 12 main restart
+sudo -u postgres psql
+# create `postgres` user
+
+# v0.berlin-gtfs-rt.transport.rest
+export PGUSER=postgres
+export PGPASSWORD=password
+PGDATABASE=postgres psql -c 'create database berlin'
+export PGDATABASE=berlin
+
+git clone https://github.com/derhuerst/hvv-rest.git /var/www/v0.berlin-gtfs-rt.transport.rest
+cd /var/www/v0.berlin-gtfs-rt.transport.rest
+npm i
+apt install unzip -y
+npm run build
+
+# put /etc/systemd/system/v0.berlin-gtfs-rt.transport.rest.service
+# put /etc/systemd/system/v0.berlin-gtfs-rt.transport.rest-monitor.service
+# put /etc/systemd/system/v0.berlin-gtfs-rt.transport.rest-match.socket
+# put /etc/systemd/system/v0.berlin-gtfs-rt.transport.rest-match.service
+# put /etc/systemd/system/v0.berlin-gtfs-rt.transport.rest-serve.socket
+# put /etc/systemd/system/v0.berlin-gtfs-rt.transport.rest-serve.service
+systemctl enable v0.berlin-gtfs-rt.transport.rest
+systemctl start v0.berlin-gtfs-rt.transport.rest
+
 # print status of all APIs
 systemctl list-units | grep transport.rest
 

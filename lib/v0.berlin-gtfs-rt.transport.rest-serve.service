@@ -1,0 +1,19 @@
+[Unit]
+Description=serve VBB data as GTFS-RT
+Requires=v0.berlin-gtfs-rt.transport.rest-serve.socket
+After=v0.berlin-gtfs-rt.transport.rest-serve.socket
+
+[Service]
+WorkingDirectory=/var/www/v0.berlin-gtfs-rt.transport.rest
+ExecStart=/usr/bin/node serve.js
+Environment=NODE_ENV=production
+Environment=PORT=3000
+
+Sockets=v0.berlin-gtfs-rt.transport.rest-serve.socket
+StandardInput=fd:v0.berlin-gtfs-rt.transport.rest-serve.socket
+StandardOutput=journal
+StandardError=journal
+
+Restart=always
+RestartSec=1s
+TimeoutStartSec=infinity

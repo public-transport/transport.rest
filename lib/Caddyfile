@@ -269,3 +269,14 @@ a.1.hvv.transport.rest {
 		ipmask 255.255.0.0 ffff:ffff:ffff:ff00::
 	}
 }
+
+v0.berlin-gtfs-rt.transport.rest {
+	route /feed {
+		uri strip_prefix /feed
+		reverse_proxy {
+			to localhost:3000
+		}
+	}
+	root * /var/www/v0.berlin-gtfs-rt.transport.rest/docs
+	file_server
+}
