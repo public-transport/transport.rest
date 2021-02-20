@@ -1,7 +1,0 @@
-[Unit]
-Description=input for match.js
-
-[Socket]
-ListenFIFO=/run/berlin-gtfs-rt-server/1-match
-SocketMode=0600
-RemoveOnStop=false

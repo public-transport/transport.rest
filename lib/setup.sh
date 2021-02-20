@@ -105,12 +105,12 @@ npm run build
 
 # put /etc/systemd/system/v0.berlin-gtfs-rt.transport.rest.service
 # put /etc/systemd/system/v0.berlin-gtfs-rt.transport.rest-monitor.service
-# put /etc/systemd/system/v0.berlin-gtfs-rt.transport.rest-match.socket
 # put /etc/systemd/system/v0.berlin-gtfs-rt.transport.rest-match.service
-# put /etc/systemd/system/v0.berlin-gtfs-rt.transport.rest-serve.socket
 # put /etc/systemd/system/v0.berlin-gtfs-rt.transport.rest-serve.service
+systemctl daemon-reload
 systemctl enable v0.berlin-gtfs-rt.transport.rest
-systemctl start v0.berlin-gtfs-rt.transport.rest
+systemctl restart v0.berlin-gtfs-rt.transport.rest
+systemctl status v0.berlin-gtfs-rt.transport.rest
 
 # v0.hamburg-gtfs-rt.transport.rest
 export PGUSER=postgres
@@ -126,12 +126,12 @@ npm run build
 
 # put /etc/systemd/system/v0.hamburg-gtfs-rt.transport.rest.service
 # put /etc/systemd/system/v0.hamburg-gtfs-rt.transport.rest-monitor.service
-# put /etc/systemd/system/v0.hamburg-gtfs-rt.transport.rest-match.socket
 # put /etc/systemd/system/v0.hamburg-gtfs-rt.transport.rest-match.service
-# put /etc/systemd/system/v0.hamburg-gtfs-rt.transport.rest-serve.socket
 # put /etc/systemd/system/v0.hamburg-gtfs-rt.transport.rest-serve.service
+systemctl daemon-reload
 systemctl enable v0.hamburg-gtfs-rt.transport.rest
-systemctl start v0.hamburg-gtfs-rt.transport.rest
+systemctl restart v0.hamburg-gtfs-rt.transport.rest
+systemctl status v0.hamburg-gtfs-rt.transport.rest
 
 # print status of all APIs
 systemctl list-units | grep transport.rest

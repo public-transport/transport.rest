@@ -1,22 +1,23 @@
 [Unit]
 Description=match VBB data
-Requires=v0.berlin-gtfs-rt.transport.rest-match.socket v0.berlin-gtfs-rt.transport.rest-serve.socket
-After=postgresql.service redis.service v0.berlin-gtfs-rt.transport.rest-match.socket v0.berlin-gtfs-rt.transport.rest-serve.socket
+After=postgresql.service redis.service nats-streaming-server.service
 
 [Service]
 WorkingDirectory=/var/www/v0.berlin-gtfs-rt.transport.rest
-ExecStart=/usr/bin/node match.js
+ExecStart=/var/www/v0.berlin-gtfs-rt.transport.rest/node_modules/hafas-gtfs-rt-feed/match.js lib/hafas-info.js lib/gtfs-info.js
 Environment=NODE_ENV=production
 Environment=PGUSER=postgres
 Environment=PGPASSWORD=password
-Environment=PGDATABASE=berlin
+Environment=PGDATABASE=berlin_2021_02_12
 Environment=REDIS_URL=redis://localhost:6379/1
 
-Sockets=v0.berlin-gtfs-rt.transport.rest-match.socket v0.berlin-gtfs-rt.transport.rest-serve.socket
-StandardInput=fd:v0.berlin-gtfs-rt.transport.rest-match.socket
-StandardOutput=fd:v0.berlin-gtfs-rt.transport.rest-serve.socket
+StandardInput=null
+StandardOutput=journal
 StandardError=journal
 
 Restart=always
 RestartSec=1s
 TimeoutStartSec=infinity
+
+[Install]
+WantedBy=multi-user.target

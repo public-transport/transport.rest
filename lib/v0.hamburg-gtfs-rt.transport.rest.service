@@ -1,8 +1,11 @@
 [Unit]
 Description=v0.hamburg-gtfs-rt.transport.rest meta service
-Wants=v0.hamburg-gtfs-rt.transport.rest-monitor.service v0.hamburg-gtfs-rt.transport.rest-match.service v0.hamburg-gtfs-rt.transport.rest-serve.service
+Requires=v0.hamburg-gtfs-rt.transport.rest-monitor.service v0.hamburg-gtfs-rt.transport.rest-match.service v0.hamburg-gtfs-rt.transport.rest-serve.service
 
 [Service]
 Type=oneshot
 ExecStart=/bin/true
 RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
