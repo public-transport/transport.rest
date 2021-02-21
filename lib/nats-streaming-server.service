@@ -1,0 +1,17 @@
+[Unit]
+Description=NATS Streaming server
+After=network.target
+
+[Service]
+WorkingDirectory=/root
+ExecStart=/usr/local/bin/nats-streaming-server -m 8222 --store FILE --dir /nats-data --file_auto_sync 5m
+
+StandardInput=null
+StandardOutput=journal
+StandardError=journal
+
+Restart=always
+TimeoutStartSec=infinity
+
+[Install]
+WantedBy=multi-user.target

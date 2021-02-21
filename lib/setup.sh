@@ -84,6 +84,13 @@ pg_ctlcluster 12 main restart
 sudo -u postgres psql
 # create `postgres` user
 
+## set up NATS Streaming server
+wget -O /tmp/nats-streaming-server.deb 'https://github.com/nats-io/nats-streaming-server/releases/download/v0.20.0/nats-streaming-server-v0.20.0-amd64.deb'
+dpkg --install /tmp/nats-streaming-server.deb
+# put /etc/systemd/system/nats-streaming-server.service
+systemctl restart nats-streaming-server
+systemctl status nats-streaming-server
+
 # v0.berlin-gtfs-rt.transport.rest
 export PGUSER=postgres
 export PGPASSWORD=password
