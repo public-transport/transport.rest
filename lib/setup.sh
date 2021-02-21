@@ -3,16 +3,19 @@ set -e
 set -x
 
 apt update && apt upgrade -y
-apt install -y sudo libcap2-bin git tree
+apt install -y sudo libcap2-bin git tree mosh jq
 
 # install & configure ufw & fail2ban
+apt install -y ufw
 ufw allow ssh
 ufw allow mosh
+ufw allow http
 ufw allow https
 ufw enable
 apt install -y fail2ban
-# put /etc/fail2ban/jail.local
-fail2ban-client start
+# put /etc/fail2ban/jail.local, adapt to server
+fail2ban-client reload
+fail2ban-client restart
 fail2ban-client status
 
 # install Node, npm, add-to-systemd
@@ -37,8 +40,10 @@ systemctl status caddy
 # install Redis
 apt install -y redis
 # add these to /etc/redis/redis.conf
-# maxmemory 100mb
+# maxmemory 200mb
 # maxmemory-policy allkeys-lfu
+systemctl restart redis
+systemctl status redis
 
 # install & start APIs
 git clone https://github.com/derhuerst/vbb-rest.git ~/a.v5.vbb.transport.rest
@@ -75,14 +80,13 @@ npm i
 npm run build
 add-to-systemd a.v5.hvv.transport.rest -e NODE_ENV=production -e HOSTNAME=a.v5.hvv.transport.rest -e PORT=3006 -e REDIS_URL='redis:///1' -e TIMEZONE=Europe/Berlin -e LOCALE=de-DE --cwd ~/a.v5.hvv.transport.rest "$(which node) index.js"
 systemctl enable a.v5.hvv.transport.rest
-systemctl start a.v5.hvv.transport.rest
+systemctl restart a.v5.hvv.transport.rest
 
 # set up PostgreSQL
 apt install postgresql-12-postgis-3 -y
 nano /etc/postgresql/12/main/pg_hba.conf
-pg_ctlcluster 12 main restart
-sudo -u postgres psql
-# create `postgres` user
+# replace "local all postgres peer" line with "local all postgres md5"
+systemctl restart postgresql
 
 ## set up NATS Streaming server
 wget -O /tmp/nats-streaming-server.deb 'https://github.com/nats-io/nats-streaming-server/releases/download/v0.20.0/nats-streaming-server-v0.20.0-amd64.deb'
@@ -97,7 +101,7 @@ export PGPASSWORD=password
 PGDATABASE=postgres psql -c 'create database berlin'
 export PGDATABASE=berlin
 
-git clone https://github.com/derhuerst/hvv-rest.git /var/www/v0.berlin-gtfs-rt.transport.rest
+git clone https://github.com/derhuerst/berlin-gtfs-rt-server.git /var/www/v0.berlin-gtfs-rt.transport.rest
 cd /var/www/v0.berlin-gtfs-rt.transport.rest
 npm i
 apt install unzip -y
@@ -118,7 +122,7 @@ export PGPASSWORD=password
 PGDATABASE=postgres psql -c 'create database hamburg'
 export PGDATABASE=hamburg
 
-git clone https://github.com/derhuerst/hvv-rest.git /var/www/v0.hamburg-gtfs-rt.transport.rest
+git clone https://github.com/derhuerst/hamburg-gtfs-rt-server.git /var/www/v0.hamburg-gtfs-rt.transport.rest
 cd /var/www/v0.hamburg-gtfs-rt.transport.rest
 npm i
 apt install unzip -y
