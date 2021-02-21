@@ -21,34 +21,24 @@ apt install -y nodejs
 npm config set progress false
 npm i -g npm@latest add-to-systemd
 
-# install Caddy
-curl https://getcaddy.com | bash -s personal http.cors,http.ratelimit
-chown root:root /usr/local/bin/caddy
-chmod 755 /usr/local/bin/caddy
-setcap 'cap_net_bind_service=+ep' /usr/local/bin/caddy
-groupadd -g 33 www-data
-useradd -g www-data --no-user-group   --home-dir /var/www --no-create-home   --shell /usr/sbin/nologin   --system --uid 33 www-data
-mkdir /etc/caddy
-chown -R root:root /etc/caddy
-mkdir /etc/ssl/caddy
-chown -R root:www-data /etc/ssl/caddy
-chmod 0770 /etc/ssl/caddy
+# install Caddy & set up systemd service
+wget -O /tmp/caddy.deb 'https://github.com/caddyserver/caddy/releases/download/v2.3.0/caddy_2.3.0_linux_amd64.deb'
+dpkg --install /tmp/caddy.dep
+wget -O /usr/local/bin/caddy 'https://caddyserver.com/api/download?os=linux&arch=amd64&p=github.com%2FRussellLuo%2Fcaddy-ext%2Fratelimit'
 mkdir /var/www
 chown www-data:www-data /var/www
 chmod 555 /var/www
+# /lib/systemd/system/caddy.service:
+# - put StandardOutput=null in the [Service] section to disable logging
+systemctl daemon-reload
+systemctl restart caddy
+systemctl status caddy
 
 # install Redis
 apt install -y redis
 # add these to /etc/redis/redis.conf
 # maxmemory 100mb
 # maxmemory-policy allkeys-lfu
-
-# set up Caddy systemd service
-wget https://raw.githubusercontent.com/caddyserver/caddy/v1.0.4/dist/init/linux-systemd/caddy.service -O /etc/systemd/system/caddy.service
-chown root:root /etc/systemd/system/caddy.service
-chmod 644 /etc/systemd/system/caddy.service
-systemctl daemon-reload
-# put StandardOutput=null in the [Service] section to disable logging
 
 # install & start APIs
 git clone https://github.com/derhuerst/vbb-rest.git ~/a.v5.vbb.transport.rest
@@ -143,6 +133,6 @@ systemctl list-units | grep transport.rest
 wget 'todo-link-to-Caddyfile-from-gist' -O /etc/caddy/Caddyfile
 chown root:root /etc/caddy/Caddyfile
 chmod 644 /etc/caddy/Caddyfile
-systemctl start caddy.service
+systemctl restart caddy.service
 systemctl enable caddy.service
 sleep 5 && journalctl --boot -u caddy.service

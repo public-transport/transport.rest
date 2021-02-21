@@ -1,6 +1,7 @@
 v5.vbb.transport.rest {
-	gzip
+	encode zstd gzip
 	proxy / {
+		rate_limit {remote.ip} 100r/m
 		upstream http://localhost:3009
 
 		policy round_robin
@@ -12,7 +13,6 @@ v5.vbb.transport.rest {
 		transparent
 		websocket
 	}
-	ratelimit GET,HEAD / 100 150 minute
 	log /var/log/caddy/v5.vbb.transport.rest.log {
 		rotate_age 365
 		rotate_keep 100
@@ -21,10 +21,10 @@ v5.vbb.transport.rest {
 }
 a.v5.vbb.transport.rest {
 	proxy / http://localhost:3009 {
+		rate_limit {remote.ip} 100r/m
 		transparent
 		websocket
 	}
-	ratelimit GET,HEAD / 100 150 minute
 	log /var/log/caddy/v5.vbb.transport.rest.log {
 		rotate_age 365
 		rotate_keep 100
@@ -33,8 +33,9 @@ a.v5.vbb.transport.rest {
 }
 
 v5.db.transport.rest {
-	gzip
+	encode zstd gzip
 	proxy / {
+		rate_limit {remote.ip} 100r/m
 		upstream http://localhost:3008
 
 		policy round_robin
@@ -46,7 +47,6 @@ v5.db.transport.rest {
 		transparent
 		websocket
 	}
-	ratelimit GET,HEAD / 100 150 minute
 	log /var/log/caddy/v5.db.transport.rest.log {
 		rotate_age 365
 		rotate_keep 100
@@ -55,10 +55,10 @@ v5.db.transport.rest {
 }
 a.v5.db.transport.rest {
 	proxy / http://localhost:3008 {
+		rate_limit {remote.ip} 100r/m
 		transparent
 		websocket
 	}
-	ratelimit GET,HEAD / 100 150 minute
 	log /var/log/caddy/v5.db.transport.rest.log {
 		rotate_age 365
 		rotate_keep 100
@@ -67,8 +67,9 @@ a.v5.db.transport.rest {
 }
 
 v5.bvg.transport.rest {
-	gzip
+	encode zstd gzip
 	proxy / {
+		rate_limit {remote.ip} 100r/m
 		upstream http://localhost:3007
 
 		policy round_robin
@@ -80,7 +81,6 @@ v5.bvg.transport.rest {
 		transparent
 		websocket
 	}
-	ratelimit GET,HEAD / 100 150 minute
 	log /var/log/caddy/v5.bvg.transport.rest.log {
 		rotate_age 365
 		rotate_keep 100
@@ -89,10 +89,10 @@ v5.bvg.transport.rest {
 }
 a.v5.bvg.transport.rest {
 	proxy / http://localhost:3007 {
+		rate_limit {remote.ip} 100r/m
 		transparent
 		websocket
 	}
-	ratelimit GET,HEAD / 100 150 minute
 	log /var/log/caddy/v5.bvg.transport.rest.log {
 		rotate_age 365
 		rotate_keep 100
@@ -101,8 +101,9 @@ a.v5.bvg.transport.rest {
 }
 
 v5.hvv.transport.rest {
-	gzip
+	encode zstd gzip
 	proxy / {
+		rate_limit {remote.ip} 100r/m
 		upstream http://localhost:3006
 
 		policy round_robin
@@ -114,7 +115,6 @@ v5.hvv.transport.rest {
 		transparent
 		websocket
 	}
-	ratelimit GET,HEAD / 100 150 minute
 	log /var/log/caddy/v5.hvv.transport.rest.log {
 		rotate_age 365
 		rotate_keep 100
@@ -123,10 +123,10 @@ v5.hvv.transport.rest {
 }
 a.v5.hvv.transport.rest {
 	proxy / http://localhost:3006 {
+		rate_limit {remote.ip} 100r/m
 		transparent
 		websocket
 	}
-	ratelimit GET,HEAD / 100 150 minute
 	log /var/log/caddy/v5.hvv.transport.rest.log {
 		rotate_age 365
 		rotate_keep 100
@@ -135,7 +135,9 @@ a.v5.hvv.transport.rest {
 }
 
 v0.berlin-gtfs-rt.transport.rest {
+	encode zstd gzip
 	route /feed {
+		rate_limit {remote.ip} 300r/m
 		uri strip_prefix /feed
 		reverse_proxy {
 			to localhost:3000
@@ -146,7 +148,9 @@ v0.berlin-gtfs-rt.transport.rest {
 }
 
 v0.hamburg-gtfs-rt.transport.rest {
+	encode zstd gzip
 	route /feed {
+		rate_limit {remote.ip} 300r/m
 		uri strip_prefix /feed
 		reverse_proxy {
 			to localhost:3001
