@@ -18,6 +18,14 @@ fail2ban-client reload
 fail2ban-client restart
 fail2ban-client status
 
+# configure multiple IPv6 addresses
+apt install -y netplan.io
+echo 'network: {config: disabled}' >/etc/cloud/cloud.cfg.d/99-disable-network-config.cfg
+# adapt /etc/netplan/50-cloud-init.yaml to include more addreses
+netplan apply
+netplan try
+# test using curl 'https://wtfismyip.com/text' --interface $ipv6_addr
+
 # install Node, npm, add-to-systemd
 curl -sL https://deb.nodesource.com/setup_12.x | bash -
 apt install -y nodejs

@@ -8,7 +8,7 @@ WorkingDirectory=/var/www/v0.berlin-gtfs-rt.transport.rest
 ExecStart=/var/www/v0.berlin-gtfs-rt.transport.rest/node_modules/hafas-gtfs-rt-feed/monitor.js lib/hafas.js
 Environment=NODE_ENV=production
 Environment=BBOX="{\"north\": 52.602, \"west\": 13.175, \"south\": 52.375, \"east\": 13.652}"
-Environment=LOCAL_ADDRESS=2a01:4f8:c2c:82fa::1,2a01:4f8:c2c:82fa::10,2a01:4f8:c2c:82fa::11,2a01:4f8:c2c:82fa::12,2a01:4f8:c2c:82fa::13,2a01:4f8:c2c:82fa::14,2a01:4f8:c2c:82fa::15,2a01:4f8:c2c:82fa::16,2a01:4f8:c2c:82fa::17,2a01:4f8:c2c:82fa::18,2a01:4f8:c2c:82fa::19,2a01:4f8:c2c:82fa::1a,2a01:4f8:c2c:82fa::7,2a01:4f8:c2c:82fa::8,2a01:4f8:c2c:82fa::9,2a01:4f8:c2c:82fa::a,2a01:4f8:c2c:82fa::b,2a01:4f8:c2c:82fa::c,2a01:4f8:c2c:82fa::d,2a01:4f8:c2c:82fa::e,2a01:4f8:c2c:82fa::f
+Environment=LOCAL_ADDRESS=2a01:4f8:c2c:2c95::1,2a01:4f8:c2c:2c95::2,2a01:4f8:c2c:2c95::3,2a01:4f8:c2c:2c95::4,2a01:4f8:c2c:2c95::5,2a01:4f8:c2c:2c95::6,2a01:4f8:c2c:2c95::7,2a01:4f8:c2c:2c95::8,2a01:4f8:c2c:2c95::9,2a01:4f8:c2c:2c95::a,2a01:4f8:c2c:2c95::b,2a01:4f8:c2c:2c95::c,2a01:4f8:c2c:2c95::d,2a01:4f8:c2c:2c95::e,2a01:4f8:c2c:2c95::f
 
 StandardInput=null
 StandardOutput=journal
