@@ -27,15 +27,14 @@ netplan try
 # test using curl 'https://wtfismyip.com/text' --interface $ipv6_addr
 
 # install Node, npm, add-to-systemd
-curl -sL https://deb.nodesource.com/setup_12.x | bash -
+curl -sL https://deb.nodesource.com/setup_14.x | bash -
 apt install -y nodejs
 npm config set progress false
 npm i -g npm@latest add-to-systemd
 
 # install Caddy & set up systemd service
 wget -O /tmp/caddy.deb 'https://github.com/caddyserver/caddy/releases/download/v2.3.0/caddy_2.3.0_linux_amd64.deb'
-dpkg --install /tmp/caddy.dep
-wget -O /usr/local/bin/caddy 'https://caddyserver.com/api/download?os=linux&arch=amd64&p=github.com%2FRussellLuo%2Fcaddy-ext%2Fratelimit'
+dpkg --install /tmp/caddy.deb
 mkdir /var/www
 chown www-data:www-data /var/www
 chmod 555 /var/www
@@ -61,7 +60,8 @@ npm i
 npm run build
 add-to-systemd a.v5.vbb.transport.rest -e NODE_ENV=production -e HOSTNAME=a.v5.vbb.transport.rest -e PORT=3009 -e REDIS_URL='redis:///4' -e TIMEZONE=Europe/Berlin -e LOCALE=de-DE --cwd ~/a.v5.vbb.transport.rest "$(which node) index.js"
 systemctl enable a.v5.vbb.transport.rest
-systemctl start a.v5.vbb.transport.rest
+systemctl restart a.v5.vbb.transport.rest
+systemctl status a.v5.vbb.transport.rest
 
 git clone https://github.com/derhuerst/db-rest.git ~/a.v5.db.transport.rest
 cd ~/a.v5.db.transport.rest
@@ -70,7 +70,8 @@ npm i
 npm run build
 add-to-systemd a.v5.db.transport.rest -e NODE_ENV=production -e HOSTNAME=a.v5.db.transport.rest -e PORT=3008 -e REDIS_URL='redis:///3' -e TIMEZONE=Europe/Berlin -e LOCALE=de-DE --cwd ~/a.v5.db.transport.rest "$(which node) index.js"
 systemctl enable a.v5.db.transport.rest
-systemctl start a.v5.db.transport.rest
+systemctl restart a.v5.db.transport.rest
+systemctl status a.v5.db.transport.rest
 
 git clone https://github.com/derhuerst/bvg-rest.git ~/a.v5.bvg.transport.rest
 cd ~/a.v5.bvg.transport.rest
@@ -79,7 +80,8 @@ npm i
 npm run build
 add-to-systemd a.v5.bvg.transport.rest -e NODE_ENV=production -e HOSTNAME=a.v5.bvg.transport.rest -e PORT=3007 -e REDIS_URL='redis:///2' -e TIMEZONE=Europe/Berlin -e LOCALE=de-DE --cwd ~/a.v5.bvg.transport.rest "$(which node) index.js"
 systemctl enable a.v5.bvg.transport.rest
-systemctl start a.v5.bvg.transport.rest
+systemctl restart a.v5.bvg.transport.rest
+systemctl status a.v5.bvg.transport.rest
 
 git clone https://github.com/derhuerst/hvv-rest.git ~/a.v5.hvv.transport.rest
 cd ~/a.v5.hvv.transport.rest
@@ -89,15 +91,18 @@ npm run build
 add-to-systemd a.v5.hvv.transport.rest -e NODE_ENV=production -e HOSTNAME=a.v5.hvv.transport.rest -e PORT=3006 -e REDIS_URL='redis:///1' -e TIMEZONE=Europe/Berlin -e LOCALE=de-DE --cwd ~/a.v5.hvv.transport.rest "$(which node) index.js"
 systemctl enable a.v5.hvv.transport.rest
 systemctl restart a.v5.hvv.transport.rest
+systemctl status a.v5.hvv.transport.rest
 
 # set up PostgreSQL
 apt install postgresql-12-postgis-3 -y
 nano /etc/postgresql/12/main/pg_hba.conf
+sudo -i -u postgres psql -c "ALTER USER postgres WITH PASSWORD 'password'"
 # replace "local all postgres peer" line with "local all postgres md5"
 systemctl restart postgresql
+systemctl status postgresql
 
 ## set up NATS Streaming server
-wget -O /tmp/nats-streaming-server.deb 'https://github.com/nats-io/nats-streaming-server/releases/download/v0.20.0/nats-streaming-server-v0.20.0-amd64.deb'
+wget -O /tmp/nats-streaming-server.deb 'https://github.com/nats-io/nats-streaming-server/releases/download/v0.21.1/nats-streaming-server-v0.21.1-amd64.deb'
 dpkg --install /tmp/nats-streaming-server.deb
 # put /etc/systemd/system/nats-streaming-server.service
 systemctl restart nats-streaming-server
@@ -149,9 +154,9 @@ systemctl status v0.hamburg-gtfs-rt.transport.rest
 systemctl list-units | grep transport.rest
 
 # configure & start Caddy
-wget 'todo-link-to-Caddyfile-from-gist' -O /etc/caddy/Caddyfile
+# put /etc/caddy/Caddyfile
 chown root:root /etc/caddy/Caddyfile
 chmod 644 /etc/caddy/Caddyfile
 systemctl restart caddy.service
-systemctl enable caddy.service
+systemctl status caddy.service
 sleep 5 && journalctl --boot -u caddy.service

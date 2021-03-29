@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 WorkingDirectory=/root
-ExecStart=/usr/local/bin/nats-streaming-server -m 8222 --store FILE --dir /nats-data --file_auto_sync 5m
+ExecStart=/usr/local/bin/nats-streaming-server -m 8222 --store FILE --dir /nats-data --file_auto_sync 5m --max_bytes 1g --max_inactivity 48h
 
 StandardInput=null
 StandardOutput=journal
