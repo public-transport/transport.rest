@@ -8,8 +8,8 @@ ExecStart=/var/www/v0.hamburg-gtfs-rt.transport.rest/node_modules/hafas-gtfs-rt-
 Environment=NODE_ENV=production
 Environment=PGUSER=postgres
 Environment=PGPASSWORD=password
-Environment=PGDATABASE=hamburg_2021_02_04
-Environment=REDIS_URL=redis://localhost:6379/2
+Environment=PGDATABASE=hamburg
+Environment=REDIS_URL=redis:///1
 
 StandardInput=null
 StandardOutput=journal

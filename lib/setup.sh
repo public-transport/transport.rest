@@ -47,7 +47,7 @@ systemctl status caddy
 # install Redis
 apt install -y redis
 # add these to /etc/redis/redis.conf
-# maxmemory 200mb
+# maxmemory 300mb
 # maxmemory-policy allkeys-lfu
 systemctl restart redis
 systemctl status redis
