@@ -35,6 +35,7 @@ npm i -g npm@latest add-to-systemd
 # install Caddy & set up systemd service
 wget -O /tmp/caddy.deb 'https://github.com/caddyserver/caddy/releases/download/v2.3.0/caddy_2.3.0_linux_amd64.deb'
 dpkg --install /tmp/caddy.deb
+wget -O /usr/local/bin/caddy 'https://caddyserver.com/api/download?os=linux&arch=amd64&p=github.com%2FRussellLuo%2Fcaddy-ext%2Fratelimit'
 mkdir /var/www
 chown www-data:www-data /var/www
 chmod 555 /var/www
