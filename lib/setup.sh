@@ -26,11 +26,10 @@ netplan apply
 netplan try
 # test using curl 'https://wtfismyip.com/text' --interface $ipv6_addr
 
-# install Node, npm, add-to-systemd
+# install Node, npm
 curl -sL https://deb.nodesource.com/setup_14.x | bash -
 apt install -y nodejs
 npm config set progress false
-npm i -g npm@latest add-to-systemd
 
 # install Caddy & set up systemd service
 wget -O /tmp/caddy.deb 'https://github.com/caddyserver/caddy/releases/download/v2.3.0/caddy_2.3.0_linux_amd64.deb'
@@ -59,7 +58,7 @@ cd ~/a.v5.vbb.transport.rest
 git checkout 5
 npm i
 npm run build
-add-to-systemd a.v5.vbb.transport.rest -e NODE_ENV=production -e HOSTNAME=a.v5.vbb.transport.rest -e PORT=3009 -e REDIS_URL='redis:///4' -e TIMEZONE=Europe/Berlin -e LOCALE=de-DE --cwd ~/a.v5.vbb.transport.rest "$(which node) index.js"
+# put /etc/systemd/system/a.v5.vbb.transport.rest.service
 systemctl enable a.v5.vbb.transport.rest
 systemctl restart a.v5.vbb.transport.rest
 systemctl status a.v5.vbb.transport.rest
@@ -69,7 +68,7 @@ cd ~/a.v5.db.transport.rest
 git checkout 5
 npm i
 npm run build
-add-to-systemd a.v5.db.transport.rest -e NODE_ENV=production -e HOSTNAME=a.v5.db.transport.rest -e PORT=3008 -e REDIS_URL='redis:///3' -e TIMEZONE=Europe/Berlin -e LOCALE=de-DE --cwd ~/a.v5.db.transport.rest "$(which node) index.js"
+# put /etc/systemd/system/a.v5.db.transport.rest.service
 systemctl enable a.v5.db.transport.rest
 systemctl restart a.v5.db.transport.rest
 systemctl status a.v5.db.transport.rest
@@ -79,7 +78,7 @@ cd ~/a.v5.bvg.transport.rest
 git checkout 5
 npm i
 npm run build
-add-to-systemd a.v5.bvg.transport.rest -e NODE_ENV=production -e HOSTNAME=a.v5.bvg.transport.rest -e PORT=3007 -e REDIS_URL='redis:///2' -e TIMEZONE=Europe/Berlin -e LOCALE=de-DE --cwd ~/a.v5.bvg.transport.rest "$(which node) index.js"
+# put /etc/systemd/system/a.v5.bvg.transport.rest.service
 systemctl enable a.v5.bvg.transport.rest
 systemctl restart a.v5.bvg.transport.rest
 systemctl status a.v5.bvg.transport.rest
@@ -89,7 +88,7 @@ cd ~/a.v5.hvv.transport.rest
 git checkout 5
 npm i
 npm run build
-add-to-systemd a.v5.hvv.transport.rest -e NODE_ENV=production -e HOSTNAME=a.v5.hvv.transport.rest -e PORT=3006 -e REDIS_URL='redis:///1' -e TIMEZONE=Europe/Berlin -e LOCALE=de-DE --cwd ~/a.v5.hvv.transport.rest "$(which node) index.js"
+# put /etc/systemd/system/a.v5.hvv.transport.rest.service
 systemctl enable a.v5.hvv.transport.rest
 systemctl restart a.v5.hvv.transport.rest
 systemctl status a.v5.hvv.transport.rest

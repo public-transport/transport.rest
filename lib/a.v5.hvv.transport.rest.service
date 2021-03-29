@@ -1,0 +1,17 @@
+[Unit]
+After=syslog.target network.target remote-fs.target nss-lookup.target
+
+[Service]
+ExecStart=/usr/bin/node index.js
+Restart=always
+WorkingDirectory=/root/a.v5.hvv.transport.rest
+Environment=NODE_ENV=production
+Environment=HOSTNAME=a.v5.hvv.transport.rest
+Environment=PORT=3006
+Environment=REDIS_URL=redis:///1
+Environment=TIMEZONE=Europe/Berlin
+Environment=LOCALE=de-DE
+Environment=LOCAL_ADDRESS=2a01:4f8:c0c:d58c::1,2a01:4f8:c0c:d58c::2
+
+[Install]
+WantedBy=multi-user.target
