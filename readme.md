@@ -2,7 +2,7 @@
 
 ## publicly available, developer-friendly, run by friendly people on the internet 👋
 
-Check [the status page](https://status.transport.rest). Subscribe to [the RSS feed](https://transport.rest/feed.xml) to get notified about planned maintenance and new features. Please also consider [supporting me on Patreon](https://patreon.com/derhuerst).
+Check [the status page](https://stats.uptimerobot.com/57wNLs39M). Subscribe to [the RSS feed](https://transport.rest/feed.xml) to get notified about planned maintenance and new features. Please also consider [supporting me via GitHub Sponsors](https://github.com/sponsors/derhuerst).
 
 ## [Deutsche Bahn](https://en.wikipedia.org/wiki/Deutsche_Bahn) (Germany)
 
