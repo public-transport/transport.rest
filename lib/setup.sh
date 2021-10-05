@@ -95,8 +95,8 @@ systemctl status a.v5.hvv.transport.rest
 
 # set up PostgreSQL
 apt install postgresql-12-postgis-3 -y
-nano /etc/postgresql/12/main/pg_hba.conf
 sudo -i -u postgres psql -c "ALTER USER postgres WITH PASSWORD 'password'"
+nano /etc/postgresql/12/main/pg_hba.conf
 # replace "local all postgres peer" line with "local all postgres md5"
 systemctl restart postgresql
 systemctl status postgresql
@@ -104,7 +104,9 @@ systemctl status postgresql
 ## set up NATS Streaming server
 wget -O /tmp/nats-streaming-server.deb 'https://github.com/nats-io/nats-streaming-server/releases/download/v0.22.1/nats-streaming-server-v0.22.1-amd64.deb'
 dpkg --install /tmp/nats-streaming-server.deb
+mkdir /nats-data
 # put /etc/systemd/system/nats-streaming-server.service
+systemctl daemon-reload
 systemctl restart nats-streaming-server
 systemctl status nats-streaming-server
 
@@ -127,7 +129,7 @@ npm run build
 systemctl daemon-reload
 systemctl enable v0.berlin-gtfs-rt.transport.rest
 systemctl restart v0.berlin-gtfs-rt.transport.rest
-systemctl status v0.berlin-gtfs-rt.transport.rest
+systemctl status v0.berlin-gtfs-rt.transport-*.rest
 
 apt install -y miller moreutils
 npm i extract-gtfs-shapes -g
@@ -155,7 +157,7 @@ npm run build
 systemctl daemon-reload
 systemctl enable v0.hamburg-gtfs-rt.transport.rest
 systemctl restart v0.hamburg-gtfs-rt.transport.rest
-systemctl status v0.hamburg-gtfs-rt.transport.rest
+systemctl status v0.hamburg-gtfs-rt.transport-*.rest
 
 apt install -y miller moreutils
 npm i extract-gtfs-shapes -g
