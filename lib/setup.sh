@@ -129,6 +129,13 @@ systemctl enable v0.berlin-gtfs-rt.transport.rest
 systemctl restart v0.berlin-gtfs-rt.transport.rest
 systemctl status v0.berlin-gtfs-rt.transport.rest
 
+apt install -y miller moreutils
+npm i extract-gtfs-shapes -g
+mkdir shapes
+cat gtfs/shapes.csv | mlr --csv sort -f shape_id -n shape_pt_sequence | sponge gtfs/shapes.csv
+extract-gtfs-shapes gtfs/shapes.csv shapes
+ls -l shapes
+
 # v0.hamburg-gtfs-rt.transport.rest
 export PGUSER=postgres
 export PGPASSWORD=password
@@ -149,6 +156,13 @@ systemctl daemon-reload
 systemctl enable v0.hamburg-gtfs-rt.transport.rest
 systemctl restart v0.hamburg-gtfs-rt.transport.rest
 systemctl status v0.hamburg-gtfs-rt.transport.rest
+
+apt install -y miller moreutils
+npm i extract-gtfs-shapes -g
+mkdir shapes
+cat gtfs/shapes.txt | mlr --csv sort -f shape_id -n shape_pt_sequence | sponge gtfs/shapes.txt
+extract-gtfs-shapes gtfs/shapes.txt shapes
+ls -l shapes
 
 # print status of all APIs
 systemctl list-units | grep transport.rest
