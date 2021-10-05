@@ -27,12 +27,12 @@ netplan try
 # test using curl 'https://wtfismyip.com/text' --interface $ipv6_addr
 
 # install Node, npm
-curl -sL https://deb.nodesource.com/setup_14.x | bash -
+curl -sL https://deb.nodesource.com/setup_16.x | bash -
 apt install -y nodejs
 npm config set progress false
 
 # install Caddy & set up systemd service
-wget -O /tmp/caddy.deb 'https://github.com/caddyserver/caddy/releases/download/v2.3.0/caddy_2.3.0_linux_amd64.deb'
+wget -O /tmp/caddy.deb 'https://github.com/caddyserver/caddy/releases/download/v2.4.5/caddy_2.4.5_linux_amd64.deb'
 dpkg --install /tmp/caddy.deb
 wget -O /usr/local/bin/caddy 'https://caddyserver.com/api/download?os=linux&arch=amd64&p=github.com%2FRussellLuo%2Fcaddy-ext%2Fratelimit'
 mkdir /var/www
@@ -102,7 +102,7 @@ systemctl restart postgresql
 systemctl status postgresql
 
 ## set up NATS Streaming server
-wget -O /tmp/nats-streaming-server.deb 'https://github.com/nats-io/nats-streaming-server/releases/download/v0.21.1/nats-streaming-server-v0.21.1-amd64.deb'
+wget -O /tmp/nats-streaming-server.deb 'https://github.com/nats-io/nats-streaming-server/releases/download/v0.22.1/nats-streaming-server-v0.22.1-amd64.deb'
 dpkg --install /tmp/nats-streaming-server.deb
 # put /etc/systemd/system/nats-streaming-server.service
 systemctl restart nats-streaming-server
