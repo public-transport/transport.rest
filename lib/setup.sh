@@ -34,7 +34,9 @@ npm config set progress false
 # install Caddy & set up systemd service
 wget -O /tmp/caddy.deb 'https://github.com/caddyserver/caddy/releases/download/v2.4.5/caddy_2.4.5_linux_amd64.deb'
 dpkg --install /tmp/caddy.deb
-wget -O /usr/local/bin/caddy 'https://caddyserver.com/api/download?os=linux&arch=amd64&p=github.com%2FRussellLuo%2Fcaddy-ext%2Fratelimit'
+wget -O /usr/bin/caddy 'https://caddyserver.com/api/download?os=linux&arch=amd64&p=github.com%2FRussellLuo%2Fcaddy-ext%2Fratelimit'
+chown root:caddy /usr/bin/caddy
+chmod +x /usr/bin/caddy
 mkdir /var/www
 chown www-data:www-data /var/www
 chmod 555 /var/www
