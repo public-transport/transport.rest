@@ -10,6 +10,7 @@ Environment=NODE_ENV=production
 Environment=BBOX="{\"north\": 53.6744, \"west\": 9.7559, \"south\": 53.3660, \"east\": 10.2909}"
 Environment=LOCAL_ADDRESS=2a01:4f8:c0c:d58c::3,2a01:4f8:c0c:d58c::4,2a01:4f8:c0c:d58c::5,2a01:4f8:c0c:d58c::6,2a01:4f8:c0c:d58c::8,2a01:4f8:c0c:d58c::9,2a01:4f8:c0c:d58c::a,2a01:4f8:c0c:d58c::b,2a01:4f8:c0c:d58c::c,2a01:4f8:c0c:d58c::d,2a01:4f8:c0c:d58c::e,2a01:4f8:c0c:d58c::f
 Environment=FETCH_TRIPS_INTERVAL=120000
+Environment=METRICS_SERVER_PORT=19326
 
 StandardInput=null
 StandardOutput=journal

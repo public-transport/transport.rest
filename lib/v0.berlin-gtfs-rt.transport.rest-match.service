@@ -10,6 +10,7 @@ Environment=PGUSER=postgres
 Environment=PGPASSWORD=password
 Environment=PGDATABASE=berlin
 Environment=REDIS_URL=redis:///4
+Environment=METRICS_SERVER_PORT=19324
 
 StandardInput=null
 StandardOutput=journal
