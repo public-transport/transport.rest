@@ -24,7 +24,7 @@ Check [the status page](https://stats.uptimerobot.com/57wNLs39M). Subscribe to [
 
 ## [Nah.SH](https://de.wikipedia.org/wiki/Nahverkehrsverbund_Schleswig-Holstein) (Schleswig-Holstein)
 
-- [`v0.sh-gtfs-rt.transport.rest`](https://v0.sh-gtfs-rt.transport.rest/) – experimental GTFS-RT feed
+- ~~[`v0.sh-gtfs-rt.transport.rest`](https://v0.sh-gtfs-rt.transport.rest/) – experimental GTFS-RT feed~~ (shut off due to Nah.SH request)
 
 ## [Flixbus](https://en.wikipedia.org/wiki/Flixbus) (Germany/Europe)
 
