@@ -22,10 +22,6 @@ Check [the status page](https://stats.uptimerobot.com/57wNLs39M). Subscribe to [
 - [`v5.hvv.transport.rest`](https://v5.hvv.transport.rest/)
 - [`v0.hamburg-gtfs-rt.transport.rest`](https://v0.hamburg-gtfs-rt.transport.rest/) – experimental GTFS-RT feed
 
-## [Nah.SH](https://de.wikipedia.org/wiki/Nahverkehrsverbund_Schleswig-Holstein) (Schleswig-Holstein)
-
-- [`v0.sh-gtfs-rt.transport.rest`](https://v0.sh-gtfs-rt.transport.rest/) – experimental GTFS-RT feed
-
 ## [Flixbus](https://en.wikipedia.org/wiki/Flixbus) (Germany/Europe)
 
 - [`1.flixbus.transport.rest`](https://github.com/juliuste/meinfernbus-rest/blob/v1/readme.md)
