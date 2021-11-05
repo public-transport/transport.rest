@@ -6,6 +6,7 @@ After=postgresql.service redis.service nats-streaming-server.service
 WorkingDirectory=/var/www/v0.hamburg-gtfs-rt.transport.rest
 ExecStart=/var/www/v0.hamburg-gtfs-rt.transport.rest/node_modules/hafas-gtfs-rt-feed/match.js lib/hafas-info.js lib/gtfs-info.js
 Environment=NODE_ENV=production
+Environment=FEED_ID=hamburg
 Environment=PGUSER=postgres
 Environment=PGPASSWORD=password
 Environment=PGDATABASE=hamburg
