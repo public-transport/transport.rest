@@ -32,7 +32,7 @@ apt install -y nodejs
 npm config set progress false
 
 # install Caddy & set up systemd service
-wget -O /tmp/caddy.deb 'https://github.com/caddyserver/caddy/releases/download/v2.4.5/caddy_2.4.5_linux_amd64.deb'
+wget -O /tmp/caddy.deb 'https://github.com/caddyserver/caddy/releases/download/v2.4.6/caddy_2.4.6_linux_amd64.deb'
 dpkg --install /tmp/caddy.deb
 wget -O /usr/bin/caddy 'https://caddyserver.com/api/download?os=linux&arch=amd64&p=github.com%2FRussellLuo%2Fcaddy-ext%2Fratelimit'
 chown root:caddy /usr/bin/caddy
@@ -104,7 +104,7 @@ systemctl restart postgresql
 systemctl status postgresql
 
 ## set up NATS Streaming server
-wget -O /tmp/nats-streaming-server.deb 'https://github.com/nats-io/nats-streaming-server/releases/download/v0.22.1/nats-streaming-server-v0.22.1-amd64.deb'
+wget -O /tmp/nats-streaming-server.deb 'https://github.com/nats-io/nats-streaming-server/releases/download/v0.23.1/nats-streaming-server-v0.23.1-amd64.deb'
 dpkg --install /tmp/nats-streaming-server.deb
 mkdir /nats-data
 # put /etc/systemd/system/nats-streaming-server.service
@@ -131,7 +131,7 @@ npm run build
 systemctl daemon-reload
 systemctl enable v0.berlin-gtfs-rt.transport.rest
 systemctl restart v0.berlin-gtfs-rt.transport.rest
-systemctl status v0.berlin-gtfs-rt.transport-*.rest
+systemctl status v0.berlin-gtfs-rt.transport.rest-*.rest
 
 apt install -y miller moreutils
 npm i extract-gtfs-shapes -g
@@ -159,7 +159,7 @@ npm run build
 systemctl daemon-reload
 systemctl enable v0.hamburg-gtfs-rt.transport.rest
 systemctl restart v0.hamburg-gtfs-rt.transport.rest
-systemctl status v0.hamburg-gtfs-rt.transport-*.rest
+systemctl status v0.hamburg-gtfs-rt.transport.rest-*.rest
 
 apt install -y miller moreutils
 npm i extract-gtfs-shapes -g
