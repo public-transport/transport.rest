@@ -1,0 +1,11 @@
+[Unit]
+Description=bbnavi-gtfs-rt-feed.jannisr.de meta service
+Requires=bbnavi-gtfs-rt-feed.jannisr.de-monitor.service bbnavi-gtfs-rt-feed.jannisr.de-match.service bbnavi-gtfs-rt-feed.jannisr.de-serve.service
+
+[Service]
+Type=oneshot
+ExecStart=/bin/true
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

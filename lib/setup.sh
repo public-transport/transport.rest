@@ -168,6 +168,34 @@ cat gtfs/shapes.txt | mlr --csv sort -f shape_id -n shape_pt_sequence | sponge g
 extract-gtfs-shapes gtfs/shapes.txt shapes
 ls -l shapes
 
+# bbnavi-gtfs-rt-feed.jannisr.de
+export PGUSER=postgres
+export PGPASSWORD=password
+PGDATABASE=postgres psql -c 'create database bbnavi'
+export PGDATABASE=bbnavi
+
+git clone https://github.com/bbnavi/gtfs-rt-feed.git /var/www/bbnavi-gtfs-rt-feed.jannisr.de
+cd /var/www/bbnavi-gtfs-rt-feed.jannisr.de
+npm i
+apt install unzip -y
+npm run build
+
+# put /etc/systemd/system/bbnavi-gtfs-rt-feed.jannisr.de.service
+# put /etc/systemd/system/bbnavi-gtfs-rt-feed.jannisr.de-monitor.service
+# put /etc/systemd/system/bbnavi-gtfs-rt-feed.jannisr.de-match.service
+# put /etc/systemd/system/bbnavi-gtfs-rt-feed.jannisr.de-serve.service
+systemctl daemon-reload
+systemctl enable bbnavi-gtfs-rt-feed.jannisr.de
+systemctl restart bbnavi-gtfs-rt-feed.jannisr.de
+systemctl status bbnavi-gtfs-rt-feed.jannisr.de-*.rest
+
+apt install -y miller moreutils
+npm i extract-gtfs-shapes -g
+mkdir shapes
+cat gtfs/shapes.txt | mlr --csv sort -f shape_id -n shape_pt_sequence | sponge gtfs/shapes.txt
+extract-gtfs-shapes gtfs/shapes.txt shapes
+ls -l shapes
+
 # print status of all APIs
 systemctl list-units | grep transport.rest
 

@@ -175,3 +175,18 @@ v0.hamburg-gtfs-rt.transport.rest {
 	root * /var/www/v0.hamburg-gtfs-rt.transport.rest/docs
 	file_server
 }
+
+bbnavi-gtfs-rt-feed.jannisr.de {
+	encode zstd gzip
+	route / {
+		rate_limit {remote.ip} 300r/m
+	}
+	route /feed {
+		uri strip_prefix /feed
+		reverse_proxy {
+			to localhost:3000
+		}
+	}
+	root * /var/www/bbnavi-gtfs-rt-feed.jannisr.de/docs
+	file_server
+}

@@ -1,0 +1,22 @@
+[Unit]
+Description=serve VBB data as GTFS-RT
+After=nats-streaming-server.service
+
+[Service]
+WorkingDirectory=/var/www/bbnavi-gtfs-rt-feed.jannisr.de
+ExecStart=/var/www/bbnavi-gtfs-rt-feed.jannisr.de/node_modules/hafas-gtfs-rt-feed/serve.js
+Environment=NODE_ENV=production
+Environment=FEED_ID=bbnavi
+Environment=PORT=3000
+Environment=METRICS_SERVER_PORT=19325
+
+StandardInput=null
+StandardOutput=journal
+StandardError=journal
+
+Restart=always
+RestartSec=1s
+TimeoutStartSec=infinity
+
+[Install]
+WantedBy=multi-user.target
