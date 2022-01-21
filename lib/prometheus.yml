@@ -1,0 +1,32 @@
+global:
+  scrape_interval:     15s
+  evaluation_interval: 15s
+  external_labels:
+      host: 'almond'
+      # or crypress
+      # or eucalyptus
+
+scrape_configs:
+  - job_name: 'prometheus'
+    scrape_interval: 5s
+    scrape_timeout: 5s
+    static_configs:
+      - targets: ['localhost:9090']
+  - job_name: node
+    static_configs:
+      - targets: ['localhost:9100']
+  - job_name: monitor
+    static_configs:
+      - targets: ['localhost:19323']
+  - job_name: match
+    static_configs:
+      - targets: ['localhost:19324']
+  - job_name: serve
+    static_configs:
+      - targets: ['localhost:19325']
+
+remote_write:
+  - basic_auth:
+      password: <todo-password-here>
+      username: 223315
+    url: https://prometheus-prod-01-eu-west-0.grafana.net/api/prom/push
