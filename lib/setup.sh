@@ -5,6 +5,9 @@ set -x
 apt update && apt upgrade -y
 apt install -y sudo libcap2-bin git tree mosh jq
 
+nano /etc/ssh/sshd_config
+# put "PasswordAuthentication no"
+
 # install & configure ufw & fail2ban
 apt install -y ufw
 ufw allow ssh
