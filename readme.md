@@ -28,7 +28,7 @@ Check [the status page](https://stats.uptimerobot.com/57wNLs39M). Subscribe to [
 
 ## [Flixbus](https://en.wikipedia.org/wiki/Flixbus) (Germany/Europe)
 
-- [`1.flixbus.transport.rest`](https://github.com/juliuste/meinfernbus-rest/blob/v1/readme.md)
+- [`1.flixbus.transport.rest`](https://github.com/juliuste/meinfernbus-rest/blob/main/readme.md)
 
 ## Want to run another one?
 
