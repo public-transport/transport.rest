@@ -1,6 +1,16 @@
 'use strict'
 
 module.exports = [{
+	id: '27',
+	title: 'new API for Poland: poland.transport.rest',
+	url: 'https://poland.transport.rest',
+	date: '2022-03-27T16:40:00+02:00',
+	body: `\
+**[@konhi](https://github.com/konhi) has set up a new API: \`poland.transport.rest\`!**
+
+Currently, it provides data for the Zielona Góra region, but the idea is to extend it to other areas in Poland as well.
+`
+}, {
 	id: '26',
 	title: '1.hvv.transport.rest is now shut off',
 	url: '#',
