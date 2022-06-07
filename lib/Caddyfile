@@ -79,6 +79,7 @@ v5.bvg.transport.rest {
 	}
 	reverse_proxy / {
 		to http://localhost:3007
+		to https://v5bvg.api.swingbe.de
 
 		lb_policy round_robin
 		lb_try_duration 10s
