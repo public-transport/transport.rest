@@ -1,0 +1,36 @@
+v5.vbb.transport.rest {
+	encode zstd gzip
+	route / {
+		rate_limit {remote.ip} 100r/m
+	}
+	reverse_proxy / {
+		to http://localhost:3009
+
+		lb_policy round_robin
+		lb_try_duration 30s
+		fail_duration 1m
+		max_fails 5
+		health_uri /health
+		health_interval 5m
+		health_timeout 10s
+	}
+	log {
+		output file /var/log/caddy/v5.vbb.transport.rest.log {
+			rotate_keep 10000h
+			ipmask 255.255.0.0 ffff:ffff:ffff:ff00::
+		}
+	}
+}
+a.v5.vbb.transport.rest {
+	route / {
+		rate_limit {remote.ip} 100r/m
+	}
+	reverse_proxy / http://localhost:3009 {
+	}
+	log {
+		output file /var/log/caddy/v5.vbb.transport.rest.log {
+			rotate_keep 10000h
+			ipmask 255.255.0.0 ffff:ffff:ffff:ff00::
+		}
+	}
+}

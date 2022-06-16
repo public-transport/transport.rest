@@ -11,3 +11,6 @@ all:
         db-rest-5:
           hosts:
             guelder:
+        vbb-rest-5:
+          hosts:
+            guelder:
