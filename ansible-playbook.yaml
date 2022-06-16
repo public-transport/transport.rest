@@ -1,0 +1,125 @@
+---
+- name: basic system setup
+  hosts: all
+  tasks:
+    - name: disallow SSH password authentication
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regex: ^(# *)?PasswordAuthentication
+        line: PasswordAuthentication no
+
+    - name: install basic administration tools (sudo, Mosh, etc.)
+      package:
+        name:
+          - sudo
+          - mosh
+          - tree
+          - jq
+          - htop
+
+    # configure firewall
+    - name: let UFW deny everything
+      community.general.ufw:
+        policy: deny
+    - name: let UFW allow rate-limited SSH
+      community.general.ufw:
+        rule: limit
+        name: OpenSSH
+    - name: let UFW allow Mosh
+      community.general.ufw:
+        rule: allow
+        name: mosh
+    - name: let UFW allow HTTP
+      community.general.ufw:
+        rule: allow
+        port: '80'
+        proto: tcp
+    - name: let UFW allow HTTPS
+      community.general.ufw:
+        rule: allow
+        port: '443'
+        proto: tcp
+    - name: enable UFW
+      community.general.ufw:
+        state: enabled
+
+- name: install Node.js
+  hosts: all
+  roles:
+    # install Node.js from NodeSource's repo
+    - role: geerlingguy.nodejs
+      vars:
+        nodejs_version: '16.x'
+        nodejs_npm_global_packages:
+          - nats-streaming-cli
+
+- name: install Caddy
+  hosts:
+    - hafas-rest-api
+  roles:
+    # todo: put StandardOutput=null in the [Service] section to disable logging
+    - role: caddy_ansible.caddy_ansible
+      vars:
+        caddy_update: false
+        caddy_packages:
+          - 'github.com/RussellLuo/caddy-ext/ratelimit'
+        caddy_systemd_capabilities_enabled: true
+  tasks:
+    - name: put entrypoint Caddyfile
+      ansible.builtin.template:
+        src: Caddyfile
+        dest: /etc/caddy/Caddyfile
+        owner: 'www-data'
+
+- name: install Redis
+  hosts:
+    - hafas-rest-api
+  tasks:
+    - name: install Redis
+      package:
+        name:
+          - redis
+    - name: configure Redis to use at most 300mb memory
+      lineinfile:
+        path: /etc/redis/redis.conf
+        regex: ^(# *)?maxmemory\b
+        line: maxmemory 300mb
+    - name: configure Redis to remove LFU keys
+      lineinfile:
+        path: /etc/redis/redis.conf
+        regex: ^(# *)?maxmemory-policy\b
+        line: maxmemory-policy allkeys-lfu
+
+- name: deploy a.v5.bvg.transport.rest
+  hosts:
+    - bvg-rest-5
+  tasks:
+    - name: clone derhuerst/bvg-rest:5
+      ansible.builtin.git:
+        repo: 'https://github.com/derhuerst/bvg-rest.git'
+        dest: /srv/a.v5.bvg.transport.rest
+        version: '5'
+    - name: npm install
+      community.general.npm:
+        path: /srv/a.v5.bvg.transport.rest
+    - name: npm run build
+      shell: npm run build
+      args:
+        chdir: /srv/a.v5.bvg.transport.rest
+    - name: create systemd service
+      ansible.builtin.copy:
+        src: lib/a.v5.bvg.transport.rest.service
+        dest: /etc/systemd/system/
+    - name: put Caddyfile
+      ansible.builtin.copy:
+        src: lib/a.v5.bvg.transport.rest.Caddyfile
+        dest: /etc/caddy/
+        owner: 'www-data'
+    - name: enable & start systemd service
+      ansible.builtin.shell: |
+        systemctl daemon-reload
+        systemctl enable a.v5.bvg.transport.rest
+        systemctl start a.v5.bvg.transport.rest
+    - name: reload Caddy config
+      ansible.builtin.shell: |
+        systemctl reload caddy

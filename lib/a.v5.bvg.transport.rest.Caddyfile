@@ -1,0 +1,38 @@
+v5.bvg.transport.rest {
+	encode zstd gzip
+	route / {
+		rate_limit {remote.ip} 100r/m
+	}
+	reverse_proxy / {
+		to http://localhost:3007
+		# to https://v5bvg.api.swingbe.de
+
+		lb_policy round_robin
+		lb_try_duration 10s
+		fail_duration 1m
+		max_fails 5
+		health_uri /health
+		health_interval 5m
+		health_timeout 10s
+	}
+	log {
+		output file /var/log/caddy/v5.bvg.transport.rest.log {
+			rotate_keep 10000h
+			ipmask 255.255.0.0 ffff:ffff:ffff:ff00::
+		}
+	}
+}
+
+a.v5.bvg.transport.rest {
+	route / {
+		rate_limit {remote.ip} 100r/m
+	}
+	reverse_proxy / http://localhost:3007 {
+	}
+	log {
+		output file /var/log/caddy/v5.bvg.transport.rest.log {
+			rotate_keep 10000h
+			ipmask 255.255.0.0 ffff:ffff:ffff:ff00::
+		}
+	}
+}

@@ -1,0 +1,10 @@
+all:
+  hosts:
+    guelder:
+      ansible_user: root
+  children:
+    hafas-rest-api:
+      children:
+        bvg-rest-5:
+          hosts:
+            guelder:
