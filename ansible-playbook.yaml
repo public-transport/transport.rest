@@ -123,3 +123,37 @@
     - name: reload Caddy config
       ansible.builtin.shell: |
         systemctl reload caddy
+
+- name: deploy a.v5.db.transport.rest
+  hosts:
+    - db-rest-5
+  tasks:
+    - name: clone derhuerst/db-rest:5
+      ansible.builtin.git:
+        repo: 'https://github.com/derhuerst/db-rest.git'
+        dest: /srv/a.v5.db.transport.rest
+        version: '5'
+    - name: npm install
+      community.general.npm:
+        path: /srv/a.v5.db.transport.rest
+    - name: npm run build
+      shell: npm run build
+      args:
+        chdir: /srv/a.v5.db.transport.rest
+    - name: create systemd service
+      ansible.builtin.copy:
+        src: lib/a.v5.db.transport.rest.service
+        dest: /etc/systemd/system/
+    - name: put Caddyfile
+      ansible.builtin.copy:
+        src: lib/a.v5.db.transport.rest.Caddyfile
+        dest: /etc/caddy/
+        owner: 'www-data'
+    - name: enable & start systemd service
+      ansible.builtin.shell: |
+        systemctl daemon-reload
+        systemctl enable a.v5.db.transport.rest
+        systemctl start a.v5.db.transport.rest
+    - name: reload Caddy config
+      ansible.builtin.shell: |
+        systemctl reload caddy

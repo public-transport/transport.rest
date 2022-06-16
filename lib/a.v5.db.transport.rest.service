@@ -4,7 +4,7 @@ After=syslog.target network.target remote-fs.target nss-lookup.target
 [Service]
 ExecStart=/usr/bin/node index.js
 Restart=always
-WorkingDirectory=/root/a.v5.db.transport.rest
+WorkingDirectory=/srv/a.v5.db.transport.rest
 Environment=NODE_ENV=production
 Environment=HOSTNAME=a.v5.db.transport.rest
 Environment=PORT=3008
