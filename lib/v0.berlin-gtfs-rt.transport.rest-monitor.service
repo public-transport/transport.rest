@@ -4,8 +4,8 @@ After=redis.service nats-streaming-server.service
 Wants=v0.berlin-gtfs-rt.transport.rest-match.service v0.berlin-gtfs-rt.transport.rest-serve.service
 
 [Service]
-WorkingDirectory=/var/www/v0.berlin-gtfs-rt.transport.rest
-ExecStart=/var/www/v0.berlin-gtfs-rt.transport.rest/node_modules/hafas-gtfs-rt-feed/monitor.js lib/hafas.js
+WorkingDirectory=/srv/v0.berlin-gtfs-rt.transport.rest
+ExecStart=/srv/v0.berlin-gtfs-rt.transport.rest/node_modules/hafas-gtfs-rt-feed/monitor.js lib/hafas.js
 Environment=NODE_ENV=production
 Environment=FEED_ID=berlin
 Environment=BBOX="{\"north\": 53.129, \"west\": 13.175, \"south\": 52.375, \"east\": 14.458}"

@@ -1,0 +1,14 @@
+v0.berlin-gtfs-rt.transport.rest {
+	encode zstd gzip
+	route / {
+		rate_limit {remote.ip} 300r/m
+	}
+	route /feed {
+		uri strip_prefix /feed
+		reverse_proxy {
+			to localhost:3000
+		}
+	}
+	root * /srv/v0.berlin-gtfs-rt.transport.rest/docs
+	file_server
+}

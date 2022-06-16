@@ -3,8 +3,8 @@ Description=match VBB data
 After=postgresql.service redis.service nats-streaming-server.service
 
 [Service]
-WorkingDirectory=/var/www/v0.berlin-gtfs-rt.transport.rest
-ExecStart=/var/www/v0.berlin-gtfs-rt.transport.rest/node_modules/hafas-gtfs-rt-feed/match.js lib/hafas-info.js lib/gtfs-info.js
+WorkingDirectory=/srv/v0.berlin-gtfs-rt.transport.rest
+ExecStart=/srv/v0.berlin-gtfs-rt.transport.rest/node_modules/hafas-gtfs-rt-feed/match.js lib/hafas-info.js lib/gtfs-info.js
 Environment=NODE_ENV=production
 Environment=FEED_ID=berlin
 Environment=PGUSER=postgres

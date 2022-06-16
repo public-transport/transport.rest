@@ -56,6 +56,7 @@
 - name: install Caddy
   hosts:
     - hafas-rest-api
+    - hafas-gtfs-rt-server
   roles:
     # todo: put StandardOutput=null in the [Service] section to disable logging
     - role: caddy_ansible.caddy_ansible
@@ -74,6 +75,7 @@
 - name: install Redis
   hosts:
     - hafas-rest-api
+    - hafas-gtfs-rt-server
   tasks:
     - name: install Redis
       package:
@@ -89,6 +91,39 @@
         path: /etc/redis/redis.conf
         regex: ^(# *)?maxmemory-policy\b
         line: maxmemory-policy allkeys-lfu
+
+- name: install PostgreSQL
+  hosts:
+    - hafas-gtfs-rt-server
+  roles:
+    - role: geerlingguy.postgresql
+      become: yes
+  tasks:
+    - name: set password of "postgres" user
+      ansible.builtin.shell: |
+        sudo -u postgres psql -c "ALTER USER postgres PASSWORD 'password'"
+    - name: install PostGIS
+      package:
+        name:
+          - postgis
+
+- name: install NATS-Streaming server
+  hosts:
+    - hafas-gtfs-rt-server
+  roles:
+    - andrewrothstein.nats_streaming_server
+  tasks:
+    - name: create mkdir /nats-data
+      shell: mkdir -p /nats-data
+    - name: create systemd service
+      ansible.builtin.copy:
+        src: lib/nats-streaming-server.service
+        dest: /etc/systemd/system/
+    - name: enable & start systemd service
+      ansible.builtin.shell: |
+        systemctl daemon-reload
+        systemctl enable nats-streaming-server
+        systemctl start nats-streaming-server
 
 - name: deploy a.v5.bvg.transport.rest
   hosts:
@@ -191,3 +226,56 @@
     - name: reload Caddy config
       ansible.builtin.shell: |
         systemctl reload caddy
+
+- name: deploy v0.berlin-gtfs-rt.transport.rest
+  hosts:
+    - berlin-gtfs-rt-server-0
+  tasks:
+    - name: clone derhuerst/berlin-gtfs-rt-server
+      ansible.builtin.git:
+        repo: 'https://github.com/derhuerst/berlin-gtfs-rt-server.git'
+        dest: /srv/v0.berlin-gtfs-rt.transport.rest
+    - name: npm install
+      community.general.npm:
+        path: /srv/v0.berlin-gtfs-rt.transport.rest
+    - name: create "berlin_2022_06_03" PostgreSQL DB
+      # todo: make this idempotent?
+      ansible.builtin.shell: |
+        psql -c 'create database berlin_2022_06_03'
+        # test DB access
+        env PGDATABASE=berlin_2022_06_03 psql -c 'select 1'
+      environment:
+        PGHOST: localhost
+        PGUSER: postgres
+        PGPASSWORD: password
+    - name: npm run build
+      # todo: implement blue-green deployment with 2 databases?
+      ansible.builtin.shell: npm run build
+      args:
+        chdir: /srv/v0.berlin-gtfs-rt.transport.rest
+      environment:
+        PGHOST: localhost
+        PGUSER: postgres
+        PGPASSWORD: password
+        PGDATABASE: 'berlin_2022_06_03'
+    - name: create systemd services
+      ansible.builtin.copy:
+        src: "{{ item }}"
+        dest: /etc/systemd/system/
+      with_items:
+        - lib/v0.berlin-gtfs-rt.transport.rest.service
+        - lib/v0.berlin-gtfs-rt.transport.rest-monitor.service
+        - lib/v0.berlin-gtfs-rt.transport.rest-match.service
+        - lib/v0.berlin-gtfs-rt.transport.rest-serve.service
+    - name: put Caddyfile
+      ansible.builtin.copy:
+        src: lib/v0.berlin-gtfs-rt.transport.rest.Caddyfile
+        dest: /etc/caddy/
+        owner: 'www-data'
+    - name: enable & start systemd services
+      ansible.builtin.shell: |
+        systemctl daemon-reload
+        systemctl enable v0.berlin-gtfs-rt.transport.rest
+        systemctl start v0.berlin-gtfs-rt.transport.rest
+    - name: reload Caddy config
+      ansible.builtin.shell: systemctl reload caddy
