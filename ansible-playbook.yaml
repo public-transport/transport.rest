@@ -19,6 +19,9 @@
           - tree
           - jq
           - htop
+          - miller
+          - moreutils
+          - unzip
 
     # configure firewall
     - name: put fail2ban config
@@ -270,6 +273,10 @@
         PGUSER: postgres
         PGPASSWORD: password
         PGDATABASE: 'berlin_2022_06_03'
+    # todo:
+    # mkdir shapes
+    # cat gtfs/shapes.csv | mlr --csv sort -f shape_id -n shape_pt_sequence | sponge gtfs/shapes.csv
+    # npx extract-gtfs-shapes gtfs/shapes.csv shapes
     - name: create systemd services
       ansible.builtin.copy:
         src: "{{ item }}"
