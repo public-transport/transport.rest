@@ -1,5 +1,7 @@
 ---
 roles:
+- src: geerlingguy.security
+  version: '2.1.0'
 - src: geerlingguy.nodejs
   version: '6.0.0'
 - src: caddy_ansible.caddy_ansible

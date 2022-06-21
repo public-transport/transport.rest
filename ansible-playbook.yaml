@@ -1,12 +1,15 @@
 ---
 - name: basic system setup
   hosts: all
+  roles:
+    # todo: create user, add to sudoers, disable SSH root login
+    # https://github.com/stadtnavi/digitransit-ansible/blob/d0dbc92af8d795510b1e1d02dd9f4c96c573d5f4/roles/base/tasks/main.yml#L77-L93
+
+    - role: geerlingguy.security
+      vars:
+        security_ssh_permit_root_login: "yes"
+        security_fail2ban_enabled: true
   tasks:
-    - name: disallow SSH password authentication
-      lineinfile:
-        path: /etc/ssh/sshd_config
-        regex: ^(# *)?PasswordAuthentication
-        line: PasswordAuthentication no
 
     - name: install basic administration tools (sudo, Mosh, etc.)
       package:
@@ -18,6 +21,15 @@
           - htop
 
     # configure firewall
+    - name: put fail2ban config
+      ansible.builtin.copy:
+        src: lib/jail.local
+        dest: /etc/fail2ban/
+    - name: reload & restart fail2ban
+      ansible.builtin.shell: |
+        fail2ban-client reload
+        fail2ban-client restart
+        fail2ban-client status
     - name: let UFW deny everything
       community.general.ufw:
         policy: deny
