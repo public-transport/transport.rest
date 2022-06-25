@@ -1,0 +1,24 @@
+global:
+  scrape_interval:     15s
+  evaluation_interval: 15s
+  external_labels:
+    host: {{ inventory_hostname }}
+
+scrape_configs:
+  - job_name: prometheus
+    scrape_interval: 5s
+    scrape_timeout: 5s
+    static_configs:
+      - targets: ['localhost:9090']
+  - job_name: node
+    static_configs:
+      - targets: ['localhost:9100']
+  - job_name: config-files
+    file_sd_configs:
+      - files: ["scrape-configs/*.json"]
+
+remote_write:
+  - basic_auth:
+      password: {{ grafana_cloud_push_gateway_token }}
+      username: 223315
+    url: https://prometheus-prod-01-eu-west-0.grafana.net/api/prom/push

@@ -170,6 +170,30 @@
         systemctl enable nats-streaming-server
         systemctl start nats-streaming-server
 
+- name: install Prometheus
+  hosts: hafas-gtfs-rt-server
+  vars_prompt:
+    - name: grafana_cloud_push_gateway_token
+      prompt: Grafana Cloud push gateway API token
+      unsafe: yes
+  tasks:
+    - name: install Prometheus & node exporter
+      package:
+        name:
+          # todo: Ubuntu LTS's Prometheus is very outdated, download binaries instead?
+          - prometheus
+          - prometheus-node-exporter
+    - name: make directory for service-specific Prometheus scrape configs
+      ansible.builtin.file:
+        path: /etc/prometheus/scrape-configs
+        state: directory
+    - name: put Prometheus config
+      ansible.builtin.template:
+        src: prometheus.yml.j2
+        dest: /etc/prometheus/prometheus.yml
+    - name: reload Prometheus config
+      ansible.builtin.shell: killall -s SIGHUP $(which prometheus)
+
 - name: deploy a.v5.bvg.transport.rest
   hosts:
     - bvg-rest-5
@@ -328,3 +352,9 @@
         systemctl start v0.berlin-gtfs-rt.transport.rest
     - name: reload Caddy config
       ansible.builtin.shell: systemctl reload caddy
+    - name: create Prometheus scrape config
+      ansible.builtin.copy:
+        src: lib/v0.berlin-gtfs-rt.transport.rest.scrape-cfg.json
+        dest: /etc/prometheus/scrape-configs/
+    - name: reload Prometheus config
+      ansible.builtin.shell: killall -s SIGHUP $(which prometheus)
