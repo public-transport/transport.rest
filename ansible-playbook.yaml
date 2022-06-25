@@ -11,6 +11,36 @@
         security_fail2ban_enabled: true
   tasks:
 
+    - name: configure journald to persist logs
+      lineinfile:
+        path: /etc/systemd/journald.conf
+        regex: ^(# *)?Storage\b
+        line: Storage=persistent
+    - name: configure journald to compress logs
+      lineinfile:
+        path: /etc/systemd/journald.conf
+        regex: ^(# *)?Compress\b
+        line: Compress=yes
+    - name: configure journald to store at most 100gb of logs
+      lineinfile:
+        path: /etc/systemd/journald.conf
+        regex: ^(# *)?SystemMaxUse\b
+        line: SystemMaxUse=100G
+    - name: configure journald to keep 4gb free
+      lineinfile:
+        path: /etc/systemd/journald.conf
+        regex: ^(# *)?SystemKeepFree\b
+        line: SystemKeepFree=4G
+    - name: configure journald to keep 2gb free
+      lineinfile:
+        path: /etc/systemd/journald.conf
+        regex: ^(# *)?RuntimeKeepFree\b
+        line: RuntimeKeepFree=2G
+    - name: enable & start journald
+      ansible.builtin.shell: |
+        systemctl daemon-reload
+        systemctl restart systemd-journald
+
     - name: install basic administration tools (sudo, Mosh, etc.)
       package:
         name:
