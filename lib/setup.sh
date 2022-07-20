@@ -107,7 +107,7 @@ systemctl restart postgresql
 systemctl status postgresql
 
 ## set up NATS Streaming server
-wget -O /tmp/nats-streaming-server.deb 'https://github.com/nats-io/nats-streaming-server/releases/download/v0.23.1/nats-streaming-server-v0.23.1-amd64.deb'
+wget -O /tmp/nats-streaming-server.deb 'https://github.com/nats-io/nats-streaming-server/releases/download/v0.24.6/nats-streaming-server-v0.24.6-amd64.deb'
 dpkg --install /tmp/nats-streaming-server.deb
 mkdir /nats-data
 # put /etc/systemd/system/nats-streaming-server.service
