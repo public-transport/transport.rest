@@ -7,6 +7,6 @@ roles:
 - src: caddy_ansible.caddy_ansible
   version: v3.0.4
 - src: geerlingguy.postgresql
-  version: '3.2.1'
+  version: '3.4.0'
 - src: andrewrothstein.nats_streaming_server
   version: 'v1.0.4'
