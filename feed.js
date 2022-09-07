@@ -1,6 +1,19 @@
 'use strict'
 
 module.exports = [{
+	id: '28',
+	title: 'v5.{bvg,db,hvv,vbb}.transport.rest will offline for maintenance',
+	url: '#',
+	date: '2022-09-07T23:10:00+02:00',
+	body: `\
+The following API endpoints will be down for maintenance from \`2022-09-21T08:00Z\` for about an hour:
+
+- \`v5.bvg.transport.rest\`
+- \`v5.db.transport.rest\`
+- \`v5.hvv.transport.rest\`
+- \`v5.vbb.transport.rest\`
+`
+}, {
 	id: '27',
 	title: 'new API for Poland: poland.transport.rest',
 	url: 'https://poland.transport.rest',
