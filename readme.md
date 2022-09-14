@@ -23,8 +23,8 @@ Check [the status page](https://stats.uptimerobot.com/57wNLs39M). Subscribe to [
 
 ## [HVV](https://en.wikipedia.org/wiki/Hamburger_Verkehrsverbund) (Hamburg)
 
-- [`v5.hvv.transport.rest`](https://v5.hvv.transport.rest/)
-- [`v0.hamburg-gtfs-rt.transport.rest`](https://v0.hamburg-gtfs-rt.transport.rest/) – experimental GTFS-RT feed
+- ~~[`v5.hvv.transport.rest`](https://v5.hvv.transport.rest/)~~ (underlying API has been shut off by HVV)
+- ~~[`v0.hamburg-gtfs-rt.transport.rest`](https://v0.hamburg-gtfs-rt.transport.rest/) – experimental GTFS-RT feed~~ (underlying API has been shut off by HVV)
 
 ## [Nah.SH](https://de.wikipedia.org/wiki/Nahverkehrsverbund_Schleswig-Holstein) (Schleswig-Holstein)
 

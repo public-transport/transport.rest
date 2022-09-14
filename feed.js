@@ -1,6 +1,17 @@
 'use strict'
 
 module.exports = [{
+	id: '29',
+	title: 'v5.hvv.transport.rest & v0.hamburg-gtfs-rt.transport.rest are now shut off',
+	url: '#',
+	date: '2022-09-14T22:15:00+02:00',
+	body: `\
+As you may have noticed, [\`v5.hvv.transport.rest\`](https://v5.hvv.transport.rest/) hasn't been available recently. This is because HVV deprecated their HAFAS-based API when they rebuilt their mobile app. Because it has mostly been down in the past months, I have shut it off permanently.
+
+Consider using [their official API(s)](https://www.hvv.de/de/fahrplaene/abruf-fahrplaninfos/datenabruf) instead.
+
+The same applies to [\`v0.hamburg-gtfs-rt.transport.rest\`](https://v0.hamburg-gtfs-rt.transport.rest/) which was based on the same underlying HAFAS API.`
+}, {
 	id: '28',
 	title: 'v5.{bvg,db,hvv,vbb}.transport.rest will offline for maintenance',
 	url: '#',
