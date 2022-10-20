@@ -1,6 +1,6 @@
 all:
   hosts:
-    guelder:
+    thuya:
       ansible_user: root
     ipe:
       ansible_user: root
@@ -9,13 +9,13 @@ all:
       children:
         bvg-rest-5:
           hosts:
-            guelder:
+            thuya:
         db-rest-5:
           hosts:
-            guelder:
+            thuya:
         vbb-rest-5:
           hosts:
-            guelder:
+            thuya:
     hafas-gtfs-rt-server:
       children:
         berlin-gtfs-rt-server-0:
