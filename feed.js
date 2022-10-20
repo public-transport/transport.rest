@@ -1,6 +1,18 @@
 'use strict'
 
 module.exports = [{
+	id: '30',
+	title: 'v5.{bvg,db,vbb}.transport.rest will be offline for maintenance',
+	url: '#',
+	date: '2022-10-21T00:40:00+02:00',
+	body: `\
+The following API endpoints will be down briefly for maintenance at some point in the next 24 hours:
+
+- \`v5.bvg.transport.rest\`
+- \`v5.db.transport.rest\`
+- \`v5.vbb.transport.rest\`
+`
+}, {
 	id: '29',
 	title: 'v5.hvv.transport.rest & v0.hamburg-gtfs-rt.transport.rest are now shut off',
 	url: '#',
@@ -13,7 +25,7 @@ Consider using [their official API(s)](https://www.hvv.de/de/fahrplaene/abruf-fa
 The same applies to [\`v0.hamburg-gtfs-rt.transport.rest\`](https://v0.hamburg-gtfs-rt.transport.rest/) which was based on the same underlying HAFAS API.`
 }, {
 	id: '28',
-	title: 'v5.{bvg,db,hvv,vbb}.transport.rest will offline for maintenance',
+	title: 'v5.{bvg,db,hvv,vbb}.transport.rest will be offline for maintenance',
 	url: '#',
 	date: '2022-09-07T23:10:00+02:00',
 	body: `\
