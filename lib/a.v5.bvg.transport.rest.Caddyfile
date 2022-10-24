@@ -3,7 +3,7 @@ v5.bvg.transport.rest {
 	route / {
 		rate_limit {remote.ip} 100r/m
 	}
-	reverse_proxy / {
+	reverse_proxy /* {
 		to http://localhost:3007
 		# to https://v5bvg.api.swingbe.de
 
@@ -27,7 +27,7 @@ a.v5.bvg.transport.rest {
 	route / {
 		rate_limit {remote.ip} 100r/m
 	}
-	reverse_proxy / http://localhost:3007 {
+	reverse_proxy /* http://localhost:3007 {
 	}
 	log {
 		output file /var/log/caddy/v5.bvg.transport.rest.log {

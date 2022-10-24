@@ -3,7 +3,7 @@ v5.db.transport.rest {
 	route / {
 		rate_limit {remote.ip} 100r/m
 	}
-	reverse_proxy / {
+	reverse_proxy /* {
 		to http://localhost:3008
 
 		lb_policy round_robin
@@ -25,7 +25,7 @@ a.v5.db.transport.rest {
 	route / {
 		rate_limit {remote.ip} 100r/m
 	}
-	reverse_proxy / http://localhost:3008 {
+	reverse_proxy /* http://localhost:3008 {
 	}
 	log {
 		output file /var/log/caddy/v5.db.transport.rest.log {
