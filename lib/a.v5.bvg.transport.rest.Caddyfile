@@ -24,13 +24,14 @@ v5.bvg.transport.rest {
 }
 
 a.v5.bvg.transport.rest {
+	encode zstd gzip
 	route / {
 		rate_limit {remote.ip} 100r/m
 	}
 	reverse_proxy /* http://localhost:3007 {
 	}
 	log {
-		output file /var/log/caddy/v5.bvg.transport.rest.log {
+		output file /var/log/caddy/a.v5.bvg.transport.rest.log {
 			rotate_keep 10000h
 			ipmask 255.255.0.0 ffff:ffff:ffff:ff00::
 		}

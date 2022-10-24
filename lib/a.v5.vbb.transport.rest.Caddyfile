@@ -22,13 +22,14 @@ v5.vbb.transport.rest {
 	}
 }
 a.v5.vbb.transport.rest {
+	encode zstd gzip
 	route / {
 		rate_limit {remote.ip} 100r/m
 	}
 	reverse_proxy /* http://localhost:3009 {
 	}
 	log {
-		output file /var/log/caddy/v5.vbb.transport.rest.log {
+		output file /var/log/caddy/a.v5.vbb.transport.rest.log {
 			rotate_keep 10000h
 			ipmask 255.255.0.0 ffff:ffff:ffff:ff00::
 		}
