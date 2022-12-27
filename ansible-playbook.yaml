@@ -296,6 +296,40 @@
       ansible.builtin.shell: |
         systemctl reload caddy
 
+- name: deploy a.v6.vbb.transport.rest
+  hosts:
+    - vbb-rest-6
+  tasks:
+    - name: clone derhuerst/vbb-rest:6
+      ansible.builtin.git:
+        repo: 'https://github.com/derhuerst/vbb-rest.git'
+        dest: /srv/a.v6.vbb.transport.rest
+        version: '6'
+    - name: npm install
+      community.general.npm:
+        path: /srv/a.v6.vbb.transport.rest
+    - name: npm run build
+      shell: npm run build
+      args:
+        chdir: /srv/a.v6.vbb.transport.rest
+    - name: create systemd service
+      ansible.builtin.copy:
+        src: lib/a.v6.vbb.transport.rest.service
+        dest: /etc/systemd/system/
+    - name: put Caddyfile
+      ansible.builtin.copy:
+        src: lib/a.v6.vbb.transport.rest.Caddyfile
+        dest: /etc/caddy/
+        owner: 'www-data'
+    - name: enable & start systemd service
+      ansible.builtin.shell: |
+        systemctl daemon-reload
+        systemctl enable a.v6.vbb.transport.rest
+        systemctl start a.v6.vbb.transport.rest
+    - name: reload Caddy config
+      ansible.builtin.shell: |
+        systemctl reload caddy
+
 - name: deploy v0.berlin-gtfs-rt.transport.rest
   hosts:
     - berlin-gtfs-rt-server-0

@@ -16,6 +16,9 @@ all:
         vbb-rest-5:
           hosts:
             thuya:
+        vbb-rest-6:
+          hosts:
+            thuya:
     hafas-gtfs-rt-server:
       children:
         berlin-gtfs-rt-server-0:
