@@ -1,6 +1,18 @@
 'use strict'
 
 module.exports = [{
+	id: '32',
+	title: 'new VBB API: v6.db.transport.rest',
+	url: 'https://github.com/derhuerst/db-rest/blob/6/docs/readme.md',
+	date: '2022-12-29T12:30:00+01:00',
+	body: `\
+**I have set up a new API: \`v6.db.transport.rest\`.**
+
+Just works just like its predecessor [\`v5.db.transport.rest\`](https://v5.db.transport.rest/), but it returns data in the [\`hafas-client@6\`](https://github.com/public-transport/hafas-client/blob/6/docs/readme.md) format (there are only minor changes compared to [\`hafas-client@5\`](https://github.com/public-transport/hafas-client/blob/5/docs/readme.md) though).
+
+Eventually I will shut off \`v5.db.transport.rest\`, so please try to migrate within the next 6 months.
+`
+}, {
 	id: '31',
 	title: 'new VBB API: v6.vbb.transport.rest',
 	url: 'https://github.com/derhuerst/vbb-rest/blob/6/docs/readme.md',
