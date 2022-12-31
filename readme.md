@@ -6,7 +6,8 @@ Check [the status page](https://stats.uptimerobot.com/57wNLs39M). Subscribe to [
 
 ## [Deutsche Bahn](https://en.wikipedia.org/wiki/Deutsche_Bahn) (Germany)
 
-- [`v5.db.transport.rest`](https://v5.db.transport.rest/)
+- [`v6.db.transport.rest`](https://v6.db.transport.rest/)
+- [`v5.db.transport.rest`](https://v5.db.transport.rest/) – old version
 
 ## Poland
 
@@ -14,17 +15,14 @@ Check [the status page](https://stats.uptimerobot.com/57wNLs39M). Subscribe to [
 
 ## [VBB](https://en.wikipedia.org/wiki/Verkehrsverbund_Berlin-Brandenburg) (Berlin & Brandenburg)
 
-- [`v5.vbb.transport.rest`](https://v5.vbb.transport.rest/)
+- [`v6.vbb.transport.rest`](https://v6.vbb.transport.rest/)
+- [`v5.vbb.transport.rest`](https://v5.vbb.transport.rest/) – old version
 - [`v0.berlin-gtfs-rt.transport.rest`](https://v0.berlin-gtfs-rt.transport.rest/) – experimental GTFS-RT feed
 
 ## [BVG](https://en.wikipedia.org/wiki/Berliner_Verkehrsbetriebe) (Berlin & Brandenburg)
 
-- [`v5.bvg.transport.rest`](https://v5.bvg.transport.rest/)
-
-## [HVV](https://en.wikipedia.org/wiki/Hamburger_Verkehrsverbund) (Hamburg)
-
-- ~~[`v5.hvv.transport.rest`](https://v5.hvv.transport.rest/)~~ (underlying API has been shut off by HVV)
-- ~~[`v0.hamburg-gtfs-rt.transport.rest`](https://v0.hamburg-gtfs-rt.transport.rest/) – experimental GTFS-RT feed~~ (underlying API has been shut off by HVV)
+- [`v6.bvg.transport.rest`](https://v6.bvg.transport.rest/)
+- [`v5.bvg.transport.rest`](https://v5.bvg.transport.rest/) – old version
 
 ## [Nah.SH](https://de.wikipedia.org/wiki/Nahverkehrsverbund_Schleswig-Holstein) (Schleswig-Holstein)
 
