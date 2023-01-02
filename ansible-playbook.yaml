@@ -409,12 +409,12 @@
     - name: npm install
       community.general.npm:
         path: /srv/v0.berlin-gtfs-rt.transport.rest
-    - name: create "berlin_2022_06_03" PostgreSQL DB
+    - name: create "berlin_2022_12_23" PostgreSQL DB
       # todo: make this idempotent?
       ansible.builtin.shell: |
-        psql -c 'create database berlin_2022_06_03'
+        psql -c 'create database berlin_2022_12_23'
         # test DB access
-        env PGDATABASE=berlin_2022_06_03 psql -c 'select 1'
+        env PGDATABASE=berlin_2022_12_23 psql -c 'select 1'
       environment:
         PGHOST: localhost
         PGUSER: postgres
@@ -428,7 +428,7 @@
         PGHOST: localhost
         PGUSER: postgres
         PGPASSWORD: password
-        PGDATABASE: 'berlin_2022_06_03'
+        PGDATABASE: 'berlin_2022_12_23'
     # todo:
     # mkdir shapes
     # cat gtfs/shapes.csv | mlr --csv sort -f shape_id -n shape_pt_sequence | sponge gtfs/shapes.csv
