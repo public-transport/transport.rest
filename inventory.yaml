@@ -2,7 +2,7 @@ all:
   hosts:
     thuya:
       ansible_user: root
-    ipe:
+    metis:
       ansible_user: root
   children:
     hafas-rest-api:
@@ -29,4 +29,4 @@ all:
       children:
         berlin-gtfs-rt-server-0:
           hosts:
-            ipe:
+            metis:
