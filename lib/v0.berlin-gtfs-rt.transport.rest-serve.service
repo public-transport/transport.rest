@@ -4,7 +4,7 @@ After=nats-streaming-server.service
 
 [Service]
 WorkingDirectory=/srv/v0.berlin-gtfs-rt.transport.rest
-ExecStart=/srv/v0.berlin-gtfs-rt.transport.rest/node_modules/hafas-gtfs-rt-feed/serve.js --signal-demand
+ExecStart=/srv/v0.berlin-gtfs-rt.transport.rest/node_modules/hafas-gtfs-rt-feed/serve.js --signal-demand --feed-url 'https://vbb-gtfs.jannisr.de/latest/'
 Environment=NODE_ENV=production
 Environment=FEED_ID=berlin
 Environment=PORT=3000
