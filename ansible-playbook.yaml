@@ -193,6 +193,32 @@
         systemctl daemon-reload
         systemctl enable nats-streaming-server
         systemctl start nats-streaming-server
+    - name: "Prometheus exporter: download"
+      ansible.builtin.get_url:
+        # todo: pick correct platform
+        url: https://github.com/nats-io/prometheus-nats-exporter/releases/download/v0.10.1/prometheus-nats-exporter-v0.10.1-linux-arm64.zip
+        dest: /tmp/prometheus-nats-exporter-v0.10.1-linux-arm64.zip
+    - name: "Prometheus exporter: unarchive"
+      ansible.builtin.shell: |
+        unzip -n -j -d /usr/local/bin /tmp/prometheus-nats-exporter-v0.10.1-linux-arm64.zip \
+          'prometheus-nats-exporter-v0.10.1-linux-arm64/prometheus-nats-exporter'
+        chmod +x /usr/local/bin/prometheus-nats-exporter
+        prometheus-nats-exporter -version
+    - name: "Prometheus exporter: create systemd service"
+      ansible.builtin.copy:
+        src: lib/prometheus-nats-exporter.service
+        dest: /etc/systemd/system/
+    - name: "Prometheus exporter: enable & start systemd service"
+      ansible.builtin.shell: |
+        systemctl daemon-reload
+        systemctl enable prometheus-nats-exporter
+        systemctl start prometheus-nats-exporter
+    - name: "Prometheus exporter: create scrape config"
+      ansible.builtin.copy:
+        src: lib/prometheus-nats-exporter.scrape-cfg.json
+        dest: /etc/prometheus/scrape-configs/
+    - name: reload Prometheus config
+      ansible.builtin.shell: killall -s SIGHUP $(which prometheus)
 
 - name: deploy a.v5.bvg.transport.rest
   hosts:
