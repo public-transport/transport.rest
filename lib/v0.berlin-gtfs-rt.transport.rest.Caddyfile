@@ -9,6 +9,11 @@ v0.berlin-gtfs-rt.transport.rest {
 			to localhost:3000
 		}
 	}
+	route /health {
+		reverse_proxy {
+			to localhost:3000
+		}
+	}
 	root * /srv/v0.berlin-gtfs-rt.transport.rest/docs
 	file_server
 }
