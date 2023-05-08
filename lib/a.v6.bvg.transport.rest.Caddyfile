@@ -1,18 +1,25 @@
 v6.bvg.transport.rest {
 	encode zstd gzip
-	route / {
-		rate_limit {remote.ip} 100r/m
+	# pass_thru […] continues to the next HTTP handler in the route if the requested file is not found, instead of returning a 404. Practically, this is likely only be useful inside of a route block, because the file_server directive is effectively ordered last otherwise.
+	route /* {
+		file_server {
+			root /srv/a.v6.bvg.transport.rest/docs
+			pass_thru
+		}
 	}
-	reverse_proxy /* {
-		to http://localhost:3010
+	route /* {
+		rate_limit {remote.ip} 100r/m
+		reverse_proxy /* {
+			to http://localhost:3010
 
-		lb_policy round_robin
-		lb_try_duration 10s
-		fail_duration 1m
-		max_fails 5
-		health_uri /health
-		health_interval 5m
-		health_timeout 10s
+			lb_policy round_robin
+			lb_try_duration 10s
+			fail_duration 1m
+			max_fails 5
+			health_uri /health
+			health_interval 5m
+			health_timeout 10s
+		}
 	}
 	log {
 		output file /var/log/caddy/v6.bvg.transport.rest.log {
@@ -24,10 +31,17 @@ v6.bvg.transport.rest {
 
 a.v6.bvg.transport.rest {
 	encode zstd gzip
-	route / {
-		rate_limit {remote.ip} 100r/m
+	# pass_thru […] continues to the next HTTP handler in the route if the requested file is not found, instead of returning a 404. Practically, this is likely only be useful inside of a route block, because the file_server directive is effectively ordered last otherwise.
+	route /* {
+		file_server {
+			root /srv/a.v6.bvg.transport.rest/docs
+			pass_thru
+		}
 	}
-	reverse_proxy /* http://localhost:3010 {
+	route /* {
+		rate_limit {remote.ip} 100r/m
+		reverse_proxy /* http://localhost:3010 {
+		}
 	}
 	log {
 		output file /var/log/caddy/a.v6.bvg.transport.rest.log {
