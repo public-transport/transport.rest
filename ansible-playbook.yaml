@@ -338,6 +338,8 @@
       shell: npm run build
       args:
         chdir: /srv/a.v6.bvg.transport.rest
+      environment:
+        HOSTNAME: a.v6.bvg.transport.rest
     - name: create systemd service
       ansible.builtin.copy:
         src: lib/a.v6.bvg.transport.rest.service
@@ -372,6 +374,8 @@
       shell: npm run build
       args:
         chdir: /srv/a.v6.db.transport.rest
+      environment:
+        HOSTNAME: a.v6.db.transport.rest
     - name: create systemd service
       ansible.builtin.copy:
         src: lib/a.v6.db.transport.rest.service
@@ -406,6 +410,8 @@
       shell: npm run build
       args:
         chdir: /srv/a.v6.vbb.transport.rest
+      environment:
+        HOSTNAME: a.v6.vbb.transport.rest
     - name: create systemd service
       ansible.builtin.copy:
         src: lib/a.v6.vbb.transport.rest.service
