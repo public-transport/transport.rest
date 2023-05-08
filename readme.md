@@ -22,7 +22,7 @@ Check [the status page](https://stats.uptimerobot.com/57wNLs39M). Subscribe to [
 ## [BVG](https://en.wikipedia.org/wiki/Berliner_Verkehrsbetriebe) (Berlin & Brandenburg)
 
 - [`v6.bvg.transport.rest`](https://v6.bvg.transport.rest/)
-- [`v5.bvg.transport.rest`](https://v5.bvg.transport.rest/) – old version
+- [`v5.bvg.transport.rest`](https://v5.bvg.transport.rest/) – deprecated
 
 ## [Nah.SH](https://de.wikipedia.org/wiki/Nahverkehrsverbund_Schleswig-Holstein) (Schleswig-Holstein)
 
