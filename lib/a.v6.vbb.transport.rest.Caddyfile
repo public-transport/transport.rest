@@ -8,7 +8,7 @@ v6.vbb.transport.rest {
 		}
 	}
 	route /* {
-		rate_limit {remote.ip} 100r/m
+		rate_limit {remote.ip} 60r/m
 		reverse_proxy /* {
 			to http://localhost:3012
 
@@ -38,7 +38,7 @@ a.v6.vbb.transport.rest {
 		}
 	}
 	route /* {
-		rate_limit {remote.ip} 100r/m
+		rate_limit {remote.ip} 60r/m
 		reverse_proxy /* http://localhost:3012 {
 		}
 	}

@@ -11,7 +11,8 @@ Environment=PORT=3009
 Environment=REDIS_URL=redis:///4
 Environment=TIMEZONE=Europe/Berlin
 Environment=LOCALE=de-DE
-Environment=LOCAL_ADDRESS=2a01:4f8:c0c:d58c::1,2a01:4f8:c0c:d58c::2
+# they seem to have disabled IPv6
+# Environment=LOCAL_ADDRESS=2a01:4f8:c0c:d58c::1,2a01:4f8:c0c:d58c::2
 
 [Install]
 WantedBy=multi-user.target
