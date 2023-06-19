@@ -32,6 +32,10 @@ Check [the status page](https://stats.uptimerobot.com/57wNLs39M). Subscribe to [
 
 - [`1.flixbus.transport.rest`](https://github.com/juliuste/meinfernbus-rest/blob/main/readme.md)
 
+## [Nottingham City Transport](https://en.wikipedia.org/wiki/Nottingham_City_Transport) (England)
+
+- [`v1.nottingham-city.transport.rest`](https://v1.nottingham-city.transport.rest/)
+
 ## Want to run another one?
 
 I'm happy to let `*.transport.rest` point to your API, as long as it provides [public transport](https://en.wikipedia.org/wiki/Public_transport) data and is publicly accessible. Just [create an issue](https://github.com/derhuerst/transport.rest/issues/new) to let me know about your plans!

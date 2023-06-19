@@ -492,3 +492,16 @@
         dest: /etc/prometheus/scrape-configs/
     - name: reload Prometheus config
       ansible.builtin.shell: killall -s SIGHUP $(which prometheus)
+
+- name: deploy v1.nottingham-city.transport.rest
+  hosts:
+    - thuya
+  tasks:
+    - name: put Caddyfile
+      ansible.builtin.copy:
+        src: lib/v1.nottingham-city.transport.rest.Caddyfile
+        dest: /etc/caddy/
+        owner: 'www-data'
+    - name: reload Caddy config
+      ansible.builtin.shell: |
+        systemctl reload caddy

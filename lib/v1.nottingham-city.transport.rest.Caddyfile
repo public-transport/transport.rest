@@ -1,0 +1,3 @@
+v1.nottingham-city.transport.rest {
+	redir / https://nctx.crudworks.workers.dev permanent
+}
