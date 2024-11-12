@@ -152,24 +152,6 @@
         name:
           - postgis
 
-- name: install NATS-Streaming server
-  hosts:
-    - hafas-gtfs-rt-server
-  roles:
-    - andrewrothstein.nats_streaming_server
-  tasks:
-    - name: create mkdir /nats-data
-      shell: mkdir -p /nats-data
-    - name: create systemd service
-      ansible.builtin.copy:
-        src: lib/nats-streaming-server.service
-        dest: /etc/systemd/system/
-    - name: enable & start systemd service
-      ansible.builtin.shell: |
-        systemctl daemon-reload
-        systemctl enable nats-streaming-server
-        systemctl start nats-streaming-server
-
 - name: deploy a.v5.bvg.transport.rest
   hosts:
     - bvg-rest-5
