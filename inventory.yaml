@@ -2,8 +2,6 @@ all:
   hosts:
     thuya:
       ansible_user: root
-    metis:
-      ansible_user: root
   children:
     hafas-rest-api:
       children:
@@ -25,8 +23,3 @@ all:
         vbb-rest-6:
           hosts:
             thuya:
-    hafas-gtfs-rt-server:
-      children:
-        berlin-gtfs-rt-server-0:
-          hosts:
-            metis:
