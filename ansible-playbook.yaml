@@ -111,7 +111,6 @@
     # todo: put StandardOutput=null in the [Service] section to disable logging
     - role: caddy_ansible.caddy_ansible
       vars:
-        caddy_update: false
         caddy_packages:
           - 'github.com/mholt/caddy-ratelimit'
         caddy_systemd_capabilities_enabled: true
