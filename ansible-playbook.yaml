@@ -84,6 +84,11 @@
         rule: allow
         port: '443'
         proto: tcp
+    - name: let UFW allow 443/udp (HTTP/3)
+      community.general.ufw:
+        rule: allow
+        port: '443'
+        proto: udp
     - name: enable UFW
       community.general.ufw:
         state: enabled
