@@ -1,7 +1,11 @@
 v5.db.transport.rest {
 	encode zstd gzip
 	route / {
-		rate_limit {remote.ip} 60r/m
+		rate_limit {
+			key {remote.ip}
+			events 60
+			window 1m
+		}
 	}
 	reverse_proxy /* {
 		to http://localhost:3008
@@ -24,7 +28,11 @@ v5.db.transport.rest {
 a.v5.db.transport.rest {
 	encode zstd gzip
 	route / {
-		rate_limit {remote.ip} 60r/m
+		rate_limit {
+			key {remote.ip}
+			events 60
+			window 1m
+		}
 	}
 	reverse_proxy /* http://localhost:3008 {
 	}

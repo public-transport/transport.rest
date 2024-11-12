@@ -8,7 +8,11 @@ v5.bvg.transport.rest {
 		}
 	}
 	route /* {
-		rate_limit {remote.ip} 60r/m
+		rate_limit {
+			key {remote.ip}
+			events 60
+			window 1m
+		}
 		reverse_proxy /* {
 			to http://localhost:3007
 			# to https://v5bvg.api.swingbe.de
@@ -40,7 +44,11 @@ a.v5.bvg.transport.rest {
 		}
 	}
 	route /* {
-		rate_limit {remote.ip} 60r/m
+		rate_limit {
+			key {remote.ip}
+			events 60
+			window 1m
+		}
 		reverse_proxy /* http://localhost:3007 {
 		}
 	}

@@ -8,7 +8,11 @@ v6.vbb.transport.rest {
 		}
 	}
 	route /* {
-		rate_limit {remote.ip} 60r/m
+		rate_limit {
+			key {remote.ip}
+			events 60
+			window 1m
+		}
 		reverse_proxy /* {
 			to http://localhost:3012
 
@@ -38,7 +42,13 @@ a.v6.vbb.transport.rest {
 		}
 	}
 	route /* {
-		rate_limit {remote.ip} 60r/m
+		rate_limit {
+			# todo: support ipv6
+			# see also https://github.com/mholt/caddy-ratelimit/issues/23#issuecomment-2221294723
+			key {remote.ip}
+			events 60
+			window 1m
+		}
 		reverse_proxy /* http://localhost:3012 {
 		}
 	}

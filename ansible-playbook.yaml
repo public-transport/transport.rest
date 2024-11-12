@@ -108,7 +108,7 @@
       vars:
         caddy_update: false
         caddy_packages:
-          - 'github.com/RussellLuo/caddy-ext/ratelimit'
+          - 'github.com/mholt/caddy-ratelimit'
         caddy_systemd_capabilities_enabled: true
   tasks:
     - name: put entrypoint Caddyfile
