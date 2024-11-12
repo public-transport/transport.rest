@@ -5,6 +5,9 @@ After=syslog.target network.target remote-fs.target nss-lookup.target
 ExecStart=/usr/bin/node index.js
 Restart=always
 WorkingDirectory=/srv/a.v6.bvg.transport.rest
+# We tag the logs with the `local7` facility so that the don't get persisted (again) by rsyslogd.
+# see also lib/syslog-mute-local7-facility.conf
+SyslogFacility=local7
 Environment=NODE_ENV=production
 Environment=HOSTNAME=a.v6.bvg.transport.rest
 Environment=PORT=3010
