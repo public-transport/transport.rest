@@ -1,9 +1,10 @@
 [DEFAULT]
-ignoreip = elm.jannisr.de-ipv4-here elm.jannisr.de-ipv6-here
+# elm.jannisr.de
+ignoreip = 54.37.75.136/32 2001:41d0:701:1100::26d/64
 
 [sshd]
 enabled = true
 maxretry = 3
 findtime = 1d
-bantime = 21d
+bantime = 3d
 banaction = ufw
