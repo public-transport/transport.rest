@@ -108,7 +108,6 @@
     - hafas-rest-api
     - hafas-gtfs-rt-server
   roles:
-    # todo: put StandardOutput=null in the [Service] section to disable logging
     - role: caddy_ansible.caddy_ansible
       vars:
         caddy_packages:
@@ -117,6 +116,23 @@
         # > By default the Caddyfile is templated on each run. By setting this variable you can ensure the file is created on the first run but never updated after.
         caddy_config_update: false
   tasks:
+    # todo: instead, just put StandardOutput=null in caddy's [Service] section to disable logging completely?
+    - name: put rsyslogd override config muting `local7`
+      ansible.builtin.copy:
+        src: lib/syslog-mute-local7-facility.conf
+        dest: /etc/rsyslog.d/mute-local7-facility.conf
+    - name: reload rsyslogd
+      ansible.builtin.shell: |
+        systemctl reload rsyslogd
+    - name: put caddy.service override config
+      ansible.builtin.copy:
+        src: lib/caddy-syslog-facility.conf
+        dest: /etc/systemd/system/caddy.service.d/syslog-facility.conf
+    - name: restart Caddy systemd service
+      ansible.builtin.shell: |
+        systemctl daemon-reload
+        systemctl restart caddy
+
     - name: put entrypoint Caddyfile
       ansible.builtin.template:
         src: Caddyfile
