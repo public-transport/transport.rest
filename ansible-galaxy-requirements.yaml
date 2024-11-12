@@ -1,12 +1,12 @@
 ---
 roles:
 - src: geerlingguy.security
-  version: '2.1.0'
+  version: '2.4.0'
 - src: geerlingguy.nodejs
-  version: '6.0.0'
+  version: '7.0.0'
 - src: caddy_ansible.caddy_ansible
-  version: v3.0.4
+  version: v3.2.0
 - src: geerlingguy.postgresql
-  version: '3.4.0'
+  version: '3.5.2'
 - src: andrewrothstein.nats_streaming_server
   version: 'v1.0.4'
