@@ -1,1 +1,7 @@
+{
+	log {
+		exclude http.log.access http.log.error
+	}
+}
+
 import *.Caddyfile
