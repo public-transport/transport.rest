@@ -152,30 +152,6 @@
         name:
           - postgis
 
-- name: install Prometheus
-  hosts: hafas-gtfs-rt-server
-  vars_prompt:
-    - name: grafana_cloud_push_gateway_token
-      prompt: Grafana Cloud push gateway API token
-      unsafe: yes
-  tasks:
-    - name: install Prometheus & node exporter
-      package:
-        name:
-          # todo: Ubuntu LTS's Prometheus is very outdated, download binaries instead?
-          - prometheus
-          - prometheus-node-exporter
-    - name: make directory for service-specific Prometheus scrape configs
-      ansible.builtin.file:
-        path: /etc/prometheus/scrape-configs
-        state: directory
-    - name: put Prometheus config
-      ansible.builtin.template:
-        src: prometheus.yml.j2
-        dest: /etc/prometheus/prometheus.yml
-    - name: reload Prometheus config
-      ansible.builtin.shell: killall -s SIGHUP $(which prometheus)
-
 - name: install NATS-Streaming server
   hosts:
     - hafas-gtfs-rt-server
@@ -193,32 +169,6 @@
         systemctl daemon-reload
         systemctl enable nats-streaming-server
         systemctl start nats-streaming-server
-    - name: "Prometheus exporter: download"
-      ansible.builtin.get_url:
-        # todo: pick correct platform
-        url: https://github.com/nats-io/prometheus-nats-exporter/releases/download/v0.10.1/prometheus-nats-exporter-v0.10.1-linux-arm64.zip
-        dest: /tmp/prometheus-nats-exporter-v0.10.1-linux-arm64.zip
-    - name: "Prometheus exporter: unarchive"
-      ansible.builtin.shell: |
-        unzip -n -j -d /usr/local/bin /tmp/prometheus-nats-exporter-v0.10.1-linux-arm64.zip \
-          'prometheus-nats-exporter-v0.10.1-linux-arm64/prometheus-nats-exporter'
-        chmod +x /usr/local/bin/prometheus-nats-exporter
-        prometheus-nats-exporter -version
-    - name: "Prometheus exporter: create systemd service"
-      ansible.builtin.copy:
-        src: lib/prometheus-nats-exporter.service
-        dest: /etc/systemd/system/
-    - name: "Prometheus exporter: enable & start systemd service"
-      ansible.builtin.shell: |
-        systemctl daemon-reload
-        systemctl enable prometheus-nats-exporter
-        systemctl start prometheus-nats-exporter
-    - name: "Prometheus exporter: create scrape config"
-      ansible.builtin.copy:
-        src: lib/prometheus-nats-exporter.scrape-cfg.json
-        dest: /etc/prometheus/scrape-configs/
-    - name: reload Prometheus config
-      ansible.builtin.shell: killall -s SIGHUP $(which prometheus)
 
 - name: deploy a.v5.bvg.transport.rest
   hosts:
