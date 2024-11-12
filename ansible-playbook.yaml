@@ -99,7 +99,7 @@
     # install Node.js from NodeSource's repo
     - role: geerlingguy.nodejs
       vars:
-        nodejs_version: '18.x'
+        nodejs_version: '22.x'
         nodejs_npm_global_packages:
           - nats-streaming-cli
 
