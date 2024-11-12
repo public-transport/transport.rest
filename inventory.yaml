@@ -23,3 +23,6 @@ all:
         vbb-rest-6:
           hosts:
             thuya:
+        nottingham-city-1:
+          hosts:
+            thuya:

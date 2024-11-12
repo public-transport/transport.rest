@@ -115,12 +115,17 @@
         caddy_packages:
           - 'github.com/mholt/caddy-ratelimit'
         caddy_systemd_capabilities_enabled: true
+        # > By default the Caddyfile is templated on each run. By setting this variable you can ensure the file is created on the first run but never updated after.
+        caddy_config_update: false
   tasks:
     - name: put entrypoint Caddyfile
       ansible.builtin.template:
         src: Caddyfile
         dest: /etc/caddy/Caddyfile
         owner: 'www-data'
+    - name: reload Caddy config
+      ansible.builtin.shell: |
+        systemctl reload caddy
 
 - name: install Redis
   hosts:
