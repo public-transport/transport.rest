@@ -36,6 +36,11 @@
         path: /etc/systemd/journald.conf
         regex: ^(# *)?RuntimeKeepFree\b
         line: RuntimeKeepFree=2G
+    - name: run logrotate hourly instead of daily
+      lineinfile:
+        path: /etc/systemd/system/timers.target.wants/logrotate.timer
+        regex: ^OnCalendar=daily
+        line: OnCalendar=hourly
     - name: enable & start journald
       ansible.builtin.shell: |
         systemctl daemon-reload
@@ -123,7 +128,11 @@
         dest: /etc/rsyslog.d/mute-local7-facility.conf
     - name: reload rsyslogd
       ansible.builtin.shell: |
-        systemctl reload rsyslogd
+        systemctl restart rsyslog
+    - name: create caddy.service.d
+      ansible.builtin.file:
+        path: /etc/systemd/system/caddy.service.d/
+        state: directory
     - name: put caddy.service override config
       ansible.builtin.copy:
         src: lib/caddy-syslog-facility.conf
