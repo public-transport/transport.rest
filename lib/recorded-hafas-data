@@ -8,7 +8,7 @@
         notifempty
         missingok
         renamecopy
-        rotate 25
+        rotate 50
         maxsize 1000M
         postrotate
                 systemctl restart a.v5.bvg.transport.rest
@@ -24,7 +24,7 @@
         notifempty
         missingok
         renamecopy
-        rotate 25
+        rotate 50
         maxsize 1000M
         postrotate
                 systemctl restart a.v5.db.transport.rest
@@ -40,7 +40,7 @@
         notifempty
         missingok
         renamecopy
-        rotate 25
+        rotate 50
         maxsize 1000M
         postrotate
                 systemctl restart a.v5.vbb.transport.rest
@@ -56,7 +56,7 @@
         notifempty
         missingok
         renamecopy
-        rotate 25
+        rotate 50
         maxsize 1000M
         postrotate
                 systemctl restart a.v6.bvg.transport.rest
@@ -72,7 +72,7 @@
         notifempty
         missingok
         renamecopy
-        rotate 25
+        rotate 50
         maxsize 1000M
         postrotate
                 systemctl restart a.v6.db.transport.rest
@@ -88,7 +88,7 @@
         notifempty
         missingok
         renamecopy
-        rotate 25
+        rotate 50
         maxsize 1000M
         postrotate
                 systemctl restart a.v6.vbb.transport.rest

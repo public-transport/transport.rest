@@ -129,7 +129,7 @@
     - name: put rsyslogd override config muting `local7`
       ansible.builtin.copy:
         src: lib/syslog-mute-local7-facility.conf
-        dest: /etc/rsyslog.d/mute-local7-facility.conf
+        dest: /etc/rsyslog.d/22-mute-local7-facility.conf
     - name: reload rsyslogd
       ansible.builtin.shell: |
         systemctl restart rsyslog
