@@ -36,6 +36,10 @@
         path: /etc/systemd/journald.conf
         regex: ^(# *)?RuntimeKeepFree\b
         line: RuntimeKeepFree=2G
+    - name: put logrotate config
+      ansible.builtin.copy:
+        src: lib/recorded-hafas-data
+        dest: /etc/logrotate.d/recorded-hafas-data
     - name: run logrotate hourly instead of daily
       lineinfile:
         path: /etc/systemd/system/timers.target.wants/logrotate.timer
