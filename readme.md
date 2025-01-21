@@ -6,7 +6,7 @@ Check [the status page](https://stats.uptimerobot.com/57wNLs39M). Subscribe to [
 
 ## [Deutsche Bahn](https://en.wikipedia.org/wiki/Deutsche_Bahn) (Germany)
 
-- [`v6.db.transport.rest`](https://v6.db.transport.rest/)
+- [`v6.db.transport.rest`](https://v6.db.transport.rest/) – [currently unavailable](https://github.com/derhuerst/db-rest/issues/60)
 - [`v5.db.transport.rest`](https://v5.db.transport.rest/) – deprecated
 
 ## Poland
