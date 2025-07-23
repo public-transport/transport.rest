@@ -17,16 +17,11 @@ Check [the status page](https://stats.uptimerobot.com/57wNLs39M). Subscribe to [
 
 - [`v6.vbb.transport.rest`](https://v6.vbb.transport.rest/)
 - [`v5.vbb.transport.rest`](https://v5.vbb.transport.rest/) – deprecated
-~~- [`v0.berlin-gtfs-rt.transport.rest`](https://v0.berlin-gtfs-rt.transport.rest/) – experimental GTFS-RT feed~~ (shut off due to maintenance effort, but now there's [`production.gtfsrt.vbb.de`](https://production.gtfsrt.vbb.de))
 
 ## [BVG](https://en.wikipedia.org/wiki/Berliner_Verkehrsbetriebe) (Berlin & Brandenburg)
 
 - [`v6.bvg.transport.rest`](https://v6.bvg.transport.rest/)
 - [`v5.bvg.transport.rest`](https://v5.bvg.transport.rest/) – deprecated
-
-## [Nah.SH](https://de.wikipedia.org/wiki/Nahverkehrsverbund_Schleswig-Holstein) (Schleswig-Holstein)
-
-- ~~[`v0.sh-gtfs-rt.transport.rest`](https://v0.sh-gtfs-rt.transport.rest/) – experimental GTFS-RT feed~~ (shut off due to Nah.SH request)
 
 ## [Flixbus](https://en.wikipedia.org/wiki/Flixbus) (Germany/Europe)
 
