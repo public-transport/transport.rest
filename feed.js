@@ -1,6 +1,16 @@
 'use strict'
 
 module.exports = [{
+	id: '38',
+	title: 'v6.db.transport.rest should be available again',
+	url: '#',
+	date: '2025-07-23T13:30:00+02:00',
+	body: `\
+Thanks to [@traines-source](https://github.com/traines-source) for their heroic effort to switch \`db-rest\` over to [\`db-vendo-client\`](https://github.com/public-transport/db-vendo-client), an API client for several DB APIs that is almost entirely compatible with \`hafas-client\`'s DB profile.
+
+[The underlying APIs have a **low rate limit**](https://github.com/public-transport/db-vendo-client/issues/10), so please consider using \`db-vendo-client\` directly.
+`
+}, {
 	id: '37',
 	title: 'v6.db.transport.rest is currently unavailable',
 	url: 'https://github.com/derhuerst/db-rest/issues/60',
