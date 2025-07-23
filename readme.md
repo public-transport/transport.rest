@@ -7,7 +7,6 @@ Check [the status page](https://stats.uptimerobot.com/57wNLs39M). Subscribe to [
 ## [Deutsche Bahn](https://en.wikipedia.org/wiki/Deutsche_Bahn) (Germany)
 
 - [`v6.db.transport.rest`](https://v6.db.transport.rest/)
-- [`v5.db.transport.rest`](https://v5.db.transport.rest/) – deprecated
 
 ## Poland
 
@@ -16,12 +15,10 @@ Check [the status page](https://stats.uptimerobot.com/57wNLs39M). Subscribe to [
 ## [VBB](https://en.wikipedia.org/wiki/Verkehrsverbund_Berlin-Brandenburg) (Berlin & Brandenburg)
 
 - [`v6.vbb.transport.rest`](https://v6.vbb.transport.rest/)
-- [`v5.vbb.transport.rest`](https://v5.vbb.transport.rest/) – deprecated
 
 ## [BVG](https://en.wikipedia.org/wiki/Berliner_Verkehrsbetriebe) (Berlin & Brandenburg)
 
 - [`v6.bvg.transport.rest`](https://v6.bvg.transport.rest/)
-- [`v5.bvg.transport.rest`](https://v5.bvg.transport.rest/) – deprecated
 
 ## [Flixbus](https://en.wikipedia.org/wiki/Flixbus) (Germany/Europe)
 
