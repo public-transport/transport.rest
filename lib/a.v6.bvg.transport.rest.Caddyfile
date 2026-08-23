@@ -27,8 +27,11 @@ v6.bvg.transport.rest {
 	}
 	log {
 		output file /var/log/caddy/v6.bvg.transport.rest.log {
-			rotate_keep 10000h
-			ipmask 255.255.0.0 ffff:ffff:ffff:ff00::
+			# todo: how does this interact with the logrotate configs?
+			roll_keep_for 10000h
+		}
+		format filter {
+			request>remote_ip,request>client_ip ip_mask 24 56
 		}
 	}
 }
@@ -53,8 +56,10 @@ a.v6.bvg.transport.rest {
 	}
 	log {
 		output file /var/log/caddy/a.v6.bvg.transport.rest.log {
-			rotate_keep 10000h
-			ipmask 255.255.0.0 ffff:ffff:ffff:ff00::
+			roll_keep_for 10000h
+		}
+		format filter {
+			request>remote_ip,request>client_ip ip_mask 24 56
 		}
 	}
 }

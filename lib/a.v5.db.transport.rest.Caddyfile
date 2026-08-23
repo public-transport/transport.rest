@@ -20,8 +20,10 @@ v5.db.transport.rest {
 	}
 	log {
 		output file /var/log/caddy/v5.db.transport.rest.log {
-			rotate_keep 10000h
-			ipmask 255.255.0.0 ffff:ffff:ffff:ff00::
+			roll_keep_for 10000h
+		}
+		format filter {
+			request>remote_ip,request>client_ip ip_mask 24 56
 		}
 	}
 }
@@ -38,8 +40,10 @@ a.v5.db.transport.rest {
 	}
 	log {
 		output file /var/log/caddy/a.v5.db.transport.rest.log {
-			rotate_keep 10000h
-			ipmask 255.255.0.0 ffff:ffff:ffff:ff00::
+			roll_keep_for 10000h
+		}
+		format filter {
+			request>remote_ip,request>client_ip ip_mask 24 56
 		}
 	}
 }
