@@ -14,9 +14,6 @@ all:
         bvg-rest-6:
           hosts:
             thuya:
-        db-rest-6:
-          hosts:
-            thuya:
         vbb-rest-6:
           hosts:
             thuya:

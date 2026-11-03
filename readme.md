@@ -4,10 +4,6 @@
 
 Check [the status page](https://stats.uptimerobot.com/57wNLs39M). Subscribe to [the RSS feed](https://transport.rest/feed.xml) to get notified about planned maintenance and new features. Please also consider [supporting me via GitHub Sponsors](https://github.com/sponsors/derhuerst).
 
-## [Deutsche Bahn](https://en.wikipedia.org/wiki/Deutsche_Bahn) (Germany)
-
-- [`v6.db.transport.rest`](https://v6.db.transport.rest/)
-
 ## Poland
 
 - [`poland.transport.rest`](https://poland.transport.rest/)
