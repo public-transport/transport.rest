@@ -1,6 +1,16 @@
 'use strict'
 
 module.exports = [{
+	id: '39',
+	title: 'v6.db.transport.rest shut off',
+	url: '#',
+	date: '2026-11-03T14:40:00+01:00',
+	body: `\
+As you might have noticed, after months of spotty availability, we have shut off \`v6.db.transport.rest\` on 2026-10-18, because [the underlying DB API started blocking requests in an increasingly aggresive manner](https://github.com/public-transport/db-vendo-client/issues/46). Keeping the endpoint running was too much work. Thanks to [@traines-source](https://github.com/traines-source) for their long-term effort to keep \`db-vendo-client\` working so long!
+
+As an alternative, you can use [Transitous](https://transitous.org/) if your software is [open-source, non-commercal and aligns with the project's goals](https://transitous.org/api/).
+`
+}, {
 	id: '38',
 	title: 'v6.db.transport.rest should be available again',
 	url: '#',
