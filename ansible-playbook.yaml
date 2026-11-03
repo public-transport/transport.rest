@@ -217,11 +217,11 @@
         src: lib/a.v6.bvg.transport.rest.Caddyfile
         dest: /etc/caddy/
         owner: 'www-data'
-    - name: enable & start systemd service
+    - name: enable & restart systemd service
       ansible.builtin.shell: |
         systemctl daemon-reload
         systemctl enable a.v6.bvg.transport.rest
-        systemctl start a.v6.bvg.transport.rest
+        systemctl restart a.v6.bvg.transport.rest
     - name: reload Caddy config
       ansible.builtin.shell: |
         systemctl reload caddy
@@ -253,11 +253,11 @@
         src: lib/a.v6.vbb.transport.rest.Caddyfile
         dest: /etc/caddy/
         owner: 'www-data'
-    - name: enable & start systemd service
+    - name: enable & restart systemd service
       ansible.builtin.shell: |
         systemctl daemon-reload
         systemctl enable a.v6.vbb.transport.rest
-        systemctl start a.v6.vbb.transport.rest
+        systemctl restart a.v6.vbb.transport.rest
     - name: reload Caddy config
       ansible.builtin.shell: |
         systemctl reload caddy
