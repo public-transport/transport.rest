@@ -14,22 +14,6 @@
 #                systemctl restart a.v5.bvg.transport.rest
 #        endscript
 }
-/var/log/recorded-hafas-data/a.v5.db.transport.rest.ndjson {
-        compress
-        compresscmd /bin/bzip2
-        compressext .bz2
-        dateext
-        dateformat %s
-        hourly
-        notifempty
-        missingok
-        renamecopy
-        rotate 50
-        maxsize 1000M
-#        postrotate
-#                systemctl restart a.v5.db.transport.rest
-#        endscript
-}
 /var/log/recorded-hafas-data/a.v5.vbb.transport.rest.ndjson {
         compress
         compresscmd /bin/bzip2
